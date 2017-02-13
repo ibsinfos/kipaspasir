@@ -1,0 +1,80 @@
+body{
+width:1349px!important;
+}
+ #top-bar > span.act::after{
+display:none!important;
+}
+#top-bar, .style-minimal.transparent #top-bar
+{
+padding-bottom: 38px!important;
+}
+
+#main-nav{
+display:block!important
+}
+.transparent #header{
+position:absolute!important;
+background-color:transparent!important;
+
+}
+.wf-wrap {
+    margin: 0 auto;
+    max-width: 1349px!important;
+    /*padding: 0 0px!important;*/
+}
+/*
+.transparent #header {
+       padding-left: 93px!important;
+}
+*/
+#content img.wp-image-403 {
+    margin-left: -30px !important;
+}
+#content img.wp-image-405 {
+    margin-left: -30px !important;
+}
+#content img.wp-image-406 {
+    margin-left: -30px !important;
+}
+#content img.wp-image-387 {
+    margin-left: -30px !important;
+}
+
+#mobile-menu {
+    display: none;
+}
+
+@media only screen and (device-width: 768px) {
+  /* For general iPad layouts */
+  
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+  #content img.wp-image-403 {
+    margin-left: -20px !important;
+	margin-top: 0px;
+}
+#content img.wp-image-405 {
+    margin-left: -20px !important;
+	margin-top: 0px !important;
+}
+#content img.wp-image-406 {
+    margin-left: -20px !important;
+	margin-top: 0px !important;
+}
+#content img.wp-image-387 {
+    margin-left: -20px !important;
+	margin-top: 106px !important;
+}
+  
+}
+
+#imgmiddle1{
+border-bottom-color:transparent;
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+}
+
