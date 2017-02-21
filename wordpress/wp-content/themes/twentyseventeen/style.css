@@ -1302,7 +1302,7 @@ a:hover .nav-title,
 --------------------------------------------------------------*/
 
 .navigation-top {
-	background: rgba(153, 153, 158, 0.1)!important;
+	background: white!important;
 	border-bottom: 1px solid #eee;
 	border-top: 1px solid #eee;
 	font-size: 16px;
@@ -1317,7 +1317,7 @@ a:hover .nav-title,
 
 .navigation-top a {
 	color: #222;
-	font-weight: 600;
+	font-weight: 500;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
@@ -1330,6 +1330,7 @@ a:hover .nav-title,
 .main-navigation {
 	clear: both;
 	display: block;
+	
 }
 
 .main-navigation ul {
@@ -1389,10 +1390,11 @@ a:hover .nav-title,
 	display: block;
 	padding: 0.5em 0;
 	text-decoration: none;
+	font-size: 12px!important;
 }
 
 .main-navigation a:hover {
-	color: #767676;
+	color: #737373;
 }
 
 /* Menu toggle */
@@ -3449,16 +3451,18 @@ object {
 
 	.main-navigation a {
 		padding: 1em 1.25em;
+		
 	}
 
 	.main-navigation ul ul {
 		background: #fff;
-		border: 1px solid #bbb;
+		border: 1px solid #E6E6E6;
 		left: -999em;
 		padding: 0;
 		position: absolute;
 		top: 100%;
 		z-index: 99999;
+		
 	}
 
 	.main-navigation ul li.menu-item-has-children:before,
@@ -3517,7 +3521,7 @@ object {
 
 	.main-navigation li li:hover,
 	.main-navigation li li.focus {
-		background: #767676;
+		background: white;
 	}
 
 	.main-navigation li li a {
@@ -3534,8 +3538,19 @@ object {
 	.main-navigation li li.current-menu-item a:hover,
 	.main-navigation li li.current_page_item a:focus,
 	.main-navigation li li.current-menu-item a:focus {
-		color: #fff;
+		color: #000;
+		text-decoration: underline !important;
+		
 	}
+	
+.menu {
+	margin-bottom: -10px!important;
+    margin-top: 10px!important;
+		
+	} 
+ul .menu{
+	font-size: 12px!important;
+}
 
 	.main-navigation ul li:hover > ul,
 	.main-navigation ul li.focus > ul {
@@ -3561,6 +3576,10 @@ object {
 		-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
 		-ms-transform: rotate(-90deg); /* IE 9 */
 		transform: rotate(-90deg);
+	}
+	
+	.sub-menu li{
+		color: #E6E6E6 !important;
 	}
 
 	.main-navigation ul ul ul {
@@ -3612,7 +3631,10 @@ object {
 	.menu-scroll-down:focus {
 		outline: thin dotted;
 	}
-
+    .main-navigation ul li > ul{
+		color: #E6E6E6 !important;
+		font-size: 12px !important;
+	} 
 	.menu-scroll-down .icon {
 		height: 18px;
 		width: 18px;
