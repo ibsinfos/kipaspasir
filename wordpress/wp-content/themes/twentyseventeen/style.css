@@ -87,12 +87,16 @@ width: 100%!important;
     background: rgba(12, 11, 11, 0.52)!important;
     color: white!important;
     font-size: 12px!important;	
+	height: 60px!important;
 }
 
 #ssb_content{
 	width: 100%!important;
     float: right!important;
     text-align: left!important;	
+}
+.site-info{
+    display: none!important;
 }
 
 .ulb_logo{
@@ -2367,14 +2371,21 @@ body:not(.twentyseventeen-front-page) .entry-header {
 
 /* Site info */
 
-.site-info {
-	font-size: 14px;
-	font-size: 0.875rem;
-	margin-bottom: 1em;
-}
+
 
 .site-info a {
 	color: #666;
+}
+body.page-template-page-full-width #primary .entry-header .entry-title {
+font-size: 3rem!important;
+font-size: 48px!important;
+}
+
+@media screen and (min-width: 48em) {
+body.page-template-page-full-width #primary .entry-header .entry-title {
+font-size: 5rem!important;
+font-size: 80px!important;
+}
 }
 
 .site-info .sep {
@@ -3221,7 +3232,7 @@ object {
 	}
 
 	.page-one-column .panel-content .wrap {
-		max-width: 740px;
+		    max-width: 90%;
 	}
 
 	.panel-content .entry-header {
