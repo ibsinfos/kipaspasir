@@ -3278,6 +3278,7 @@ object {
 
 	.gallery-columns-3 .gallery-item {
 		max-width: 33.33%;
+		height: auto;
 	}
 
 	.gallery-columns-4 .gallery-item {
