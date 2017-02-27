@@ -37,11 +37,15 @@
 
 				get_template_part( 'template-parts/footer/site', 'info' );
 				?>
-				hahahahaha
+				<!---hahahahaha-->
+				
 			</div><!-- .wrap -->
+			<div class=bottombar1>Copyright © 2017 Alladein. DinarPal Group. All Rights Reserved. </div>
 		</footer><!-- #colophon -->
 	</div><!-- .site-content-contain -->
+	
 </div><!-- #page -->
+
 <?php wp_footer(); ?>
 
 

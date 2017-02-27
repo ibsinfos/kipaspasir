@@ -1202,7 +1202,9 @@ a:active {
 	transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
 	transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
 }
-
+.entry-title{
+	display: none;
+}
 .entry-title a,
 .entry-meta a,
 .page-links a,
@@ -1829,8 +1831,9 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 }
 
 .panel-content .wrap {
-	padding-bottom: 0.5em;
-	padding-top: 1.75em;
+	    padding-bottom: 4.5em;
+    padding-top: 1em!important;
+    margin-top: -17px!important;
 }
 
 /* Panel edit link */
@@ -2318,9 +2321,21 @@ body:not(.twentyseventeen-front-page) .entry-header {
 .site-footer .wrap {
 	padding-bottom: 1.5em;
 	padding-top: 2em;
+	    background-color: rgba(128, 128, 128, 0.2);
 }
 
 /* Footer widgets */
+.bottombar1{
+    text-align: center;
+    background-color: hsla(0, 0%, 50%, 0.29);
+    font-size: 12px;
+    font-family: arial;
+    padding-top: 11px;
+    padding-bottom: 6px;
+	
+}
+
+
 
 .site-footer .widget-area {
 	padding-bottom: 2em;
@@ -2528,13 +2543,13 @@ font-size: 80px!important;
 }
 
 h2.widget-title {
-	color: #222;
-	font-size: 13px;
-	font-size: 0.8125rem;
-	font-weight: 800;
-	letter-spacing: 0.1818em;
-	margin-bottom: 1.5em;
-	text-transform: uppercase;
+	    color: #222;
+    font-size: 13px!important;
+    font-weight: 500;
+    letter-spacing: 0em !important;
+    margin-bottom: 1.5em;
+    font-family: arial !important;
+	
 }
 
 .widget-title a {
@@ -2711,9 +2726,20 @@ h2.widget-title {
 }
 
 .search-form .search-submit .icon {
-	height: 24px;
-	top: -2px;
-	width: 24px;
+	    height: 19px;
+    top: -5px;
+    width: 16px;
+}
+.page .panel-content .entry-title, .page-title, body.page:not(.twentyseventeen-front-page) .entry-title{
+      
+    font-size: 14px!important;
+    font-size: 16px!important;
+    font-size: 16px!important;
+    font-weight: 600!important;
+    letter-spacing: 1px!important;
+    text-transform: none!important;
+    font-family: arial!important;
+	
 }
 
 /* Tag cloud widget */
@@ -3232,7 +3258,7 @@ object {
 	}
 
 	.page-one-column .panel-content .wrap {
-		    max-width: 90%;
+		    max-width: 100%;
 	}
 
 	.panel-content .entry-header {
@@ -3258,10 +3284,25 @@ object {
 	/* Site Footer */
 
 	.site-footer {
-		font-size: 16px;
-		font-size: 1rem;
+		font-size: 13px!important;
+		
 	}
-
+	
+button, input[type="button"], input[type="submit"]{
+	font-size: 13px!important;
+    font-weight: 600!important;
+    line-height: 0!important;
+    padding: 1em 2em !important;
+	    background-color: rgba(34, 34, 34, 0.34)!important;
+}
+.woocommerce-info{
+background-color: rgba(34, 34, 34, 0.34)!important;
+	
+}
+.site-footer .widget .product_list_widget li, .widget .product_list_widget li{
+	
+	padding: 10px 0!important;
+}
 	/* Gallery Columns */
 
 	.gallery-item {
@@ -3295,8 +3336,8 @@ object {
 	input,
 	select,
 	textarea {
-		font-size: 16px;
-		font-size: 1rem;
+		font-size: 13px;
+		
 		line-height: 1.5;
 	}
 
@@ -3309,11 +3350,13 @@ object {
 	/* Layout */
 
 	.wrap {
-		max-width: 1000px;
+		max-width: 100%;
 		padding-left: 3em;
 		padding-right: 3em;
 	}
-
+.woocommerce .woocommerce-ordering, .woocommerce-page .woocommerce-ordering{
+	display: none!important;
+}
 	.has-sidebar:not(.error404) #primary {
 		float: left;
 		width: 58%;
@@ -3418,7 +3461,7 @@ object {
 	}
 
 	.navigation-top .wrap {
-		max-width: 1000px;
+		max-width: 100%;
 		/* The font size is 14px here and we need 50px padding in ems */
 		padding: 0.75em 3.4166666666667em;
 	}
@@ -3701,12 +3744,10 @@ ul .menu{
 	.admin-bar.home.blog.has-header-video .custom-header-media {
 		height: calc(100vh - 32px);
 	}
-
-	.panel-content .wrap {
-		padding-bottom: 4.5em;
-		padding-top: 6em;
-	}
-
+	
+.post-edit-link{
+	display: none;
+}
 	.panel-image {
 		height: 100vh;
 		max-height: 1200px;
@@ -3975,8 +4016,8 @@ ul .menu{
 	/* Widgets */
 
 	h2.widget-title {
-		font-size: 11px;
-		font-size: 0.6875rem;
+		font-size: 13px;
+		
 		margin-bottom: 2em;
 	}
 
