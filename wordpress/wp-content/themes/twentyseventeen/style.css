@@ -1637,7 +1637,7 @@ body.has-header-video .site-description {
 
 .custom-logo-link img {
 	display: inline-block;
-	max-height: 80px;
+	max-height: 65px;
 	width: auto;
 }
 
@@ -1659,6 +1659,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
 
 .custom-header {
 	position: relative;
+    background-color: white!important;
 }
 
 .has-header-image.twentyseventeen-front-page .custom-header,
@@ -3247,7 +3248,8 @@ object {
 	/* Site Branding */
 
 	.site-branding {
-		padding: 3em 0;
+		padding: 1em 0;
+		display: flex!important;
 	}
 
 	/* Front Page */
@@ -4095,6 +4097,7 @@ ul .menu{
 	/* Navigation */
 	.navigation-top .wrap {
 		padding: 0.75em 2em;
+		margin-top: -19px;
 	}
 
 	.navigation-top nav {
