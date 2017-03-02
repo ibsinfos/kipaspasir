@@ -27,6 +27,16 @@
 				<?php endif; ?>
 		</div><!-- .site-branding-text -->
 
+		<?php
+
+if ( is_active_sidebar( 'custom-header-widget' ) ) : ?>
+    <div id="header-widget-area" class="chw-widget-area widget-area" role="complementary">
+	<?php dynamic_sidebar( 'custom-header-widget' ); ?>
+    </div>
+	
+<?php endif; ?>
+		
+		
 		<?php if ( ( twentyseventeen_is_frontpage() || ( is_home() && is_front_page() ) ) && ! has_nav_menu( 'top' ) ) : ?>
 		<a href="#content" class="menu-scroll-down"><?php echo twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ); ?><span class="screen-reader-text"><?php _e( 'Scroll down to content', 'twentyseventeen' ); ?></span></a>
 	<?php endif; ?>

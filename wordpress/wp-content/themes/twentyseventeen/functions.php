@@ -310,7 +310,21 @@ add_filter( 'wp_resource_hints', 'twentyseventeen_resource_hints', 10, 2 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function twentyseventeen_widgets_init() {
+function wpb_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Custom Header Widget Area',
+		'id'            => 'custom-header-widget',
+		'before_widget' => '<div class="chw-widget">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="chw-title">',
+		'after_title'   => '</h2>',
+	) );
+
+}
+add_action( 'widgets_init', 'wpb_widgets_init' );
+
+ function twentyseventeen_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'twentyseventeen' ),
 		'id'            => 'sidebar-1',
@@ -341,7 +355,10 @@ function twentyseventeen_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 }
+
 add_action( 'widgets_init', 'twentyseventeen_widgets_init' );
+
+
 
 /**
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
@@ -403,6 +420,9 @@ function twentyseventeen_colors_css_wrap() {
 	</style>
 <?php }
 add_action( 'wp_head', 'twentyseventeen_colors_css_wrap' );
+
+
+
 
 /**
  * Enqueue scripts and styles.

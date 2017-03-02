@@ -110,6 +110,15 @@ width: 100%!important;
     font-size: 13px!important;
     font-family: arial!important;
     font-weight: 800!important;
+	background-image: url(http://localhost/kipaspasir/wordpress/wp-content/uploads/2017/02/cart123.png) !important;
+    background-width: 50%;
+    background-repeat: no-repeat;
+    padding: 3px;
+    /* background-origin: content-box; */
+    background-size: 25px 25px!important;
+    background-position-x: 132px;
+    width: 181px;
+	background-position-y: -2px;
 }
 figure {
 	margin: 1em 0;
@@ -1542,6 +1551,9 @@ html {
 
 body {
 	background: #fff;
+	height: auto;
+    width: 100%!important;
+	padding: 0px !important;
 	/* Fallback for when there is no custom background color defined. */
 }
 
@@ -1551,12 +1563,14 @@ body {
 }
 
 .wrap {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 700px;
-	padding-left: 2em;
-	padding-right: 2em;
+	    max-width: 100%;
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+    width: 100% !important;
+    margin: 0px !important;
 }
+
+
 
 .wrap:after {
 	clear: both;
@@ -1645,8 +1659,10 @@ body.has-header-video .site-description {
 
 .custom-logo-link img {
 	display: inline-block;
-	max-height: 65px;
-	width: auto;
+	    max-height: 65px;
+    width: 182px;
+    height: auto;
+    margin-left: 35px;
 }
 
 body.home.title-tagline-hidden.has-header-image .custom-logo-link img,
@@ -1842,7 +1858,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 .panel-content .wrap {
 	    padding-bottom: 4.5em;
     padding-top: 1em!important;
-    margin-top: -17px!important;
+    margin-top: -70px!important;
 }
 
 /* Panel edit link */
@@ -2549,6 +2565,7 @@ font-size: 80px!important;
 
 .widget {
 	padding-bottom: 3em;
+	padding-left: 18px !important;
 }
 
 h2.widget-title {
@@ -3386,6 +3403,7 @@ background-color: rgba(34, 34, 34, 0.34)!important;
 
 	.site-branding {
 		margin-bottom: 0;
+		margin-bottom: 45px!important;
 	}
 
 	.has-header-image.twentyseventeen-front-page .site-branding,
@@ -4104,8 +4122,8 @@ ul .menu{
 
 	/* Navigation */
 	.navigation-top .wrap {
-		padding: 0.75em 2em;
-		margin-top: -19px;
+		padding: 6px 2em;
+    margin-top: -15px!important;
 	}
 
 	.navigation-top nav {

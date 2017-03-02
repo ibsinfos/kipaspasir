@@ -23,17 +23,23 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'twentyseventeen'); ?></a>
+	
     <header id="masthead" class="site-header" role="banner">
         <?php get_template_part('template-parts/header/header', 'image'); ?>
         <?php if (has_nav_menu('top')) : ?>
+		
         <div class="navigation-top">
+		
             <div class="wrap">
                 <?php get_template_part('template-parts/navigation/navigation', 'top'); ?>
+				
                 <!--Custom cart start-->
 				
                 <?php global $woocommerce; ?> 
+				
 				<a class="your-class-name" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" 
                    title="<?php _e('Cart View', 'woothemes'); ?>">
+				   
                     <?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'),
                     $woocommerce->cart->cart_contents_count);?>  -
                     <?php echo $woocommerce->cart->get_cart_total(); ?>
@@ -53,5 +59,7 @@
         echo '</div><!-- .single-featured-image-header -->';
     endif;
     ?>
+	
+	
     <div class="site-content-contain">
         <div id="content" class="site-content">
