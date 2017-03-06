@@ -18,6 +18,8 @@
 
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<div class="wrap">
+			<div id="footer-widgets">
+			
 				<?php
 				get_template_part( 'template-parts/footer/footer', 'widgets' );
 
@@ -38,31 +40,13 @@
 				get_template_part( 'template-parts/footer/site', 'info' );
 				?>
 				<!---hahahahaha-->
-				<div id="footer-widgets">
+				
+				
 
-<div id="sidebar-1">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 1') ) : ?>
-<?php endif; ?>
-</div>
 
-<div id="sidebar-2">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 2') ) : ?>
-<?php endif; ?>
-</div>
-
-<div id="sidebar-3">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 3') ) : ?>
-<?php endif; ?>
-</div>
-
-<div id="sidebar-4">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer 4') ) : ?>
-<?php endif; ?>
-</div>
-</div>
 <div style="clear-both"></div>
 			</div><!-- .wrap -->
-			<div class=bottombar1>Copyright © 2017 Alladein. DinarPal Group. All Rights Reserved. </div>
+			
 		</footer><!-- #colophon -->
 	</div><!-- .site-content-contain -->
 	
