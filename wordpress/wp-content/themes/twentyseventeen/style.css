@@ -4090,6 +4090,18 @@ ul .menu{
     width: 42%!important;
     height: 63%!important;
 }
+.reg {
+	width: 12%!important;
+    text-align: center!important;
+    position: absolute !important;
+    z-index: 99999999999999999999999999999999999999!important;
+    /* float: right; */
+    right: 2%!important;
+    top: 3%!important;
+    font-size: 13px !important;
+    font-family: arial !important;
+    font-weight: 700!important;
+}
 button, input[type="button"], input[type="submit"]{
 	font-size: 12px!important;
     font-weight: 500!important;
