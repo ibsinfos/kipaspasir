@@ -1819,6 +1819,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 
 .twentyseventeen-front-page .site-content {
 	padding: 0;
+	margin-bottom: -27px;
 }
 
 .twentyseventeen-panel {
@@ -2085,10 +2086,33 @@ body:not(.twentyseventeen-front-page) .entry-header {
 body:not(.twentyseventeen-front-page) .entry-header,
 body:not(.twentyseventeen-front-page) .entry-content,
 body:not(.twentyseventeen-front-page) #comments {
-	margin-left: auto;
-	margin-right: auto;
+	margin-right: auto!important;
+    margin-left: -14%!important;
+    margin-top: -7%!important;
+}
+#cforms3form.cform label, #cforms4form.cform label{
+	font-size: 12px!important;
+    font-weight: 500!important;
+    text-align: left!important;
+    vertical-align: top;
+    width: 30%;
+    font-family: arial !important;
+	
+}
+.tblregper{
+	padding: 24px;
+	
 }
 
+.cform{
+	
+	padding: 30px!important;
+}
+
+.txtup{
+	font-size: 14px;
+    font-weight: 600;
+}
 body:not(.twentyseventeen-front-page) .entry-header {
 	padding-top: 0;
 }
@@ -4068,8 +4092,10 @@ ul .menu{
 		font-size: 14px;
 		font-size: 0.875rem;
 		line-height: 1.6;
-		margin-top: 3em;
+		margin-top: 0em;
 	}
+	
+	
 
 	.site-footer .widget-column.footer-widget-1 {
 		float: none;
@@ -4091,7 +4117,7 @@ ul .menu{
     height: 63%!important;
 }
 .reg {
-	width: 12%!important;
+	width: 15%!important;
     text-align: center!important;
     position: absolute !important;
     z-index: 99999999999999999999999999999999999999!important;
@@ -4100,7 +4126,11 @@ ul .menu{
     top: 3%!important;
     font-size: 13px !important;
     font-family: arial !important;
-    font-weight: 700!important;
+    font-weight: 600!important;
+}
+
+.reg td:hover {
+	text-decoration: underline;
 }
 button, input[type="button"], input[type="submit"]{
 	font-size: 12px!important;

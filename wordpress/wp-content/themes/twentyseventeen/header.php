@@ -26,7 +26,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'twentyseventeen'); ?></a>
-	<div><table class="reg"><tbody><tr><td class=""signup11">Sign Up</td><td></td><td>|</td><td></td><td class=""login11">Login</td></tr></tbody></table></div>
+	<div><table class="reg"><tbody><tr><td class="signin11"><a href="http://localhost/kipaspasir/wordpress/login/">Sign in</a></td><td></td><td>|</td><td></td><td class="register11"><a href="http://localhost/kipaspasir/wordpress/register-business-account/">Register</a></td><td></td><td>|</td><td></td><td class="deal11"><a href="">Deals</a></td><td></td><td>|</td><td></td><td class="help11"><a href="">Help</a></td></tr></tbody></table></div>
     <header id="masthead" class="site-header" role="banner">
         <?php get_template_part('template-parts/header/header', 'image'); ?>
         <?php if (has_nav_menu('top')) : ?>
