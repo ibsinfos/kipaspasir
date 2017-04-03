@@ -26,5 +26,9 @@
                 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
                 <script src="js/respond.min.js"></script>
         <![endif]-->
+        
+        <script src="<?=base_url(); ?>assets/themes/js/common.js"></script>
+        <script src="<?=base_url(); ?>assets/themes/js/jquery.flexslider-min.js"></script>
+        
     </head>
     <body>

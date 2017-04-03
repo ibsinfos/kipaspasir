@@ -1,6 +1,6 @@
                         <section class="navbar main-menu">
 				<div class="navbar-inner main-menu">				
-					<a href="index.html" class="logo pull-left"><img src="<?=base_url(); ?>assets/themes/images/logo.png" class="site_logo" alt=""></a>
+					<a href="<?=site_url('shop'); ?>" class="logo pull-left"><img src="<?=base_url(); ?>assets/themes/images/logo.png" class="site_logo" alt=""></a>
 					<nav id="menu" class="pull-right">
 						<ul>
 							<li><a href="./products.html">Electronics</a>					

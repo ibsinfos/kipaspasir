@@ -1,6 +1,6 @@
                         <section class="navbar main-menu">
 				<div class="navbar-inner main-menu">				
-					<a href="index.html" class="logo pull-left"><img src="<?=base_url(); ?>assets/themes/images/logo.png" class="site_logo" alt=""></a>
+					<a href="<?=site_url('shop'); ?>" class="logo pull-left"><img src="<?=base_url(); ?>assets/themes/images/logo.png" class="site_logo" alt=""></a>
 					<nav id="menu" class="pull-right">
 						<ul>
 							<li><a href="./products.html">Electronics</a>					
@@ -300,3 +300,23 @@
 			<section id="copyright">
 				<span>Alladein. Dinarpal Group. All right reserved 2017.</span>
 			</section>
+
+<script>
+    $(function () {
+        $('#myTab a:first').tab('show');
+        $('#myTab a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        })
+    })
+    $(document).ready(function() {
+        $('.thumbnail').fancybox({
+            openEffect  : 'none',
+            closeEffect : 'none'
+        });
+
+        $('#myCarousel-2').carousel({
+            interval: 2500
+        });								
+    });
+</script>

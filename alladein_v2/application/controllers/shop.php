@@ -16,10 +16,28 @@ class Shop extends CI_Controller
             echo $this->load->view($this->parent_page.'/'.'v_footer', $data, true);
         }
 
-
         public function index()
 	{
             $this->viewpage();
 	}
         
+        public function showProducts()
+        {
+            $this->viewpage('v_products');
+        }
+        
+        public function showProductDetail()
+        {
+            $this->viewpage('v_product_detail');
+        }
+        
+        public function myCarts()
+        {
+            $this->viewpage('v_cart');
+        }
+        
+        public function checkout()
+        {
+            $this->viewpage('v_checkout');
+        }
 }
