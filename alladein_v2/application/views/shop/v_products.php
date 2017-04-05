@@ -1,24 +1,4 @@
-                        <section class="navbar main-menu">
-				<div class="navbar-inner main-menu">				
-					<a href="<?=site_url('shop'); ?>" class="logo pull-left"><img src="<?=base_url(); ?>assets/themes/images/logo.png" class="site_logo" alt=""></a>
-					<nav id="menu" class="pull-right">
-						<ul>
-							<li><a href="./products.html">Electronics</a>					
-								
-							</li>															
-							<li><a href="./products.html">Women's Fashion</a></li>			
-							<li><a href="./products.html">Men's Fashion</a>
-								
-							</li>							
-							<li><a href="./products.html">Home & Living</a></li>
-							<li><a href="./products.html">Health & Beauty</a></li>
-							<li><a href="./products.html">Food & Beverages</a></li>
-							<li><a href="./products.html">Sports & Travel</a></li>
-							<li><a href="./products.html">Groceries & More</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>	
+ <div id="wrapper" class="container">    
 			<section class="header_text sub">
 			<img class="pageBanner" src="<?=base_url(); ?>assets/themes/images/pageBanner.png" alt="New products" >
 				<h4><span>New products</span></h4>
@@ -202,49 +182,4 @@
 					</div>
 				</div>
 			</section>
-			<section id="footer-bar">
-				<div class="row">
-					<div class="span3">
-						<h4>Navigation</h4>
-						<ul class="nav">
-							<li><a href="./index.php">Homepage</a></li>  
-							<li><a href="./about.php">About Us</a></li>
-							<li><a href="./contact.php">Contac Us</a></li>
-							<li><a href="./cart.php">Your Cart</a></li>
-							<li><a href="https://www.dinarpal.com/index.php/login">Login</a></li>							
-						</ul>					
-					</div>
-					<div class="span3">
-						<h4>My Account</h4>
-						<ul class="nav">
-							<li><a href="#">My Account</a></li>
-							<li><a href="#">Order History</a></li>
-							<li><a href="#">Wish List</a></li>
-							<li><a href="#">Newsletter</a></li>
-						</ul>
-					</div>
-					<div class="span3">
-						<h4>User Manual</h4>
-						<ul class="nav">
-							<li><a href="#">How to use Alladein?</a></li>
-							<li><a href="#">How to buy?</a></li>
-							<li><a href="#">How to sell?</a></li>
-							
-						</ul>
-					</div>
-					<div class="span3">
-						<h4>Social Media</h4>
-						<ul class="nav">
-							<li><a href="#">Facebook</a></li>
-							<li><a href="#">Instagram</a></li>
-							<li><a href="#">Twitter</a></li>
-							
-							
-							
-						</ul>
-					</div>			
-				</div>	
-			</section>
-			<section id="copyright">
-				<span>Alladein. Dinarpal Group. All right reserved 2017.</span>
-			</section>
+</div>			

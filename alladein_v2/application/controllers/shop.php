@@ -10,10 +10,10 @@ class Shop extends CI_Controller
         
         private function viewpage($page='v_main', $data=array())
         {
-            echo $this->load->view($this->parent_page.'/'.'v_header', $data, true);
-            echo $this->load->view($this->parent_page.'/'.'v_menu', $data, true);
+            echo $this->load->view('v_header', $data, true);
+            echo $this->load->view('v_menu', $data, true);
             echo $this->load->view($this->parent_page.'/'.$page, $data, true);
-            echo $this->load->view($this->parent_page.'/'.'v_footer', $data, true);
+            echo $this->load->view('v_footer', $data, true);
         }
 
         public function index()

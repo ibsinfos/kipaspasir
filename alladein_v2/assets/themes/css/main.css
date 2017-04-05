@@ -4,16 +4,52 @@
 /* common
 ----------------------------------------------------------------------------- */
 body{
-	font-size: 12px;
+	font-size: 13px;
 	font-family: Ubuntu,Helvetica,sans-serif!important;
-	background:url(../images/bg.png) repeat 0 0 fixed;
+	/*background:url(../images/bg.png) repeat 0 0 fixed;*/
 }
 label, input, button, select, textarea{
-	font-size: 12px;
+	font-size: 13px;
 }
 span{
 	font-family: Ubuntu,Helvetica,sans-serif!important;
 }
+h4.title{
+	    width: 97.5%!important;
+}
+.cbp-hrmenu .cbp-hrsub{
+	
+	background-color: #fff!important;
+}
+.cbp-hrmenu > ul > li.cbp-hropen a, .cbp-hrmenu > ul > li.cbp-hropen {
+	    color: rgb(88, 80, 80)!important;
+    background: #fff!important;
+    
+}
+.span3{
+width: 250px!important;}
+
+ul >li:hover{
+	text-decoration: underline;
+}
+.cbp-hrmenu > ul > li > a{
+	    padding: 1em 2.3em!important;
+}
+.cbp-hrmenu{
+	    margin-top: 3em!important;
+}
+.cbp-hrsub h4{
+	color: #000!important;
+  
+   
+    font-size: 146%!important;
+    font-weight: 100!important;
+	line-height: 8px!important;
+}
+
+/*.cbp-hrmenu > ul, .cbp-hrmenu .cbp-hrsub-inner{
+	padding: 6px 8.875em!important;
+}*/
 ul li a,a{
 	color:#333;
 	outline:0; 
@@ -71,12 +107,29 @@ a:hover{
 	font-weight: bold;
 	font-size: 12px;
 }
+
+#head{
+	    background-color: #252E33!important;
+    background-size: contain!important;
+    width: 100%!important;
+}
+
+#top-bar, #menu{
+	    background-color: #252E33!important;
+   
+}
+a:hover{
+	    color: #ffa300!important;
+}
+#head ul li a, a{
+	    color: #fff;
+}
 #wrapper,#top-bar{
-	background: #fff;
+	/*background: #fff;*/
 	margin: 20px auto 20px auto;
-	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+	/*box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-	-webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);*/
 	padding:0px 10px;
 }
 section.homepage-slider,
