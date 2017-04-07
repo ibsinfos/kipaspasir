@@ -1,0 +1,60 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 1.6 To 1.7
+
+NOTICE: Ensure your server is running PHP5.2+ before applying this upgrade!
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/reports_messages.php
+- /administrator/settings_general.php
+- /themes/administrator/global_header.tpl
+- /themes/administrator/reports_messages.tpl
+- /themes/administrator/settings_general.tpl
+- /themes/new2.tpl
+- new.php
+
+
+
+2. Open /include/lang/english.php
+Find:
+$lang['445'] =  "";
+
+Add Below:
+$lang['445'] =  "Your e-mail address must be confirmed before you can create gigs.";
+$lang['446'] =  "";
+
+
+
+3. Open /include/lang/french.php
+Find:
+$lang['445'] =  "";
+
+Add Below:
+$lang['445'] =  "Votre adresse e-mail doit être confirmée avant que vous puissiez créer des concerts.";
+$lang['446'] =  "";
+
+
+
+4. Open /include/lang/spanish.php
+Find:
+$lang['445'] =  "";
+
+Add Below:
+$lang['445'] =  "Su dirección de correo electrónico debe ser confirmado antes de poder crear conciertos.";
+$lang['446'] =  "";
+
+
+
+5. Run the update.sql file in your database management tool such as phpMyAdmin

@@ -37,6 +37,7 @@ ul >li:hover{
 }
 .cbp-hrmenu{
 	    margin-top: 3em!important;
+		    display: inline-flex;
 }
 .cbp-hrsub h4{
 	color: #000!important;

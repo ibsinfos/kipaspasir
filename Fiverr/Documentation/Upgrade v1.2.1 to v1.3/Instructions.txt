@@ -1,0 +1,70 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2010 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 1.2.1 To 1.3
+
+
+1. Upload the following files to your server from the upload folder of this package:
+- /administrator/gigs_manage.php
+- /administrator/gigs_validate.php
+- /include/functions/main.php
+- /themes/bit.tpl
+- /themes/conversations.tpl
+- /themes/order.tpl
+- /themes/sendmessage.tpl
+- /themes/track.tpl
+- /themes/track2.tpl
+- /themes/view.tpl
+- balance.php
+- order.php
+- sendmessage.php
+
+
+
+2. Open /include/lang/english.php
+Find:
+$lang['437'] =  "";
+
+Replace With:
+$lang['437'] =  "You have received a new message.";
+$lang['438'] =  "has sent you a new message.";
+$lang['439'] =  "Message";
+$lang['440'] =  "";
+
+
+
+3. Open /include/lang/french.php
+Find:
+$lang['437'] =  "";
+
+Replace With:
+$lang['437'] =  "Vous avez reçu un nouveau message..";
+$lang['438'] =  "vous a envoyé un nouveau message.";
+$lang['439'] =  "Message";
+$lang['440'] =  "";
+
+
+
+4. Open /include/lang/spanish.php
+Find:
+$lang['437'] =  "";
+
+Replace With:
+$lang['437'] =  "Usted ha recibido un nuevo mensaje.";
+$lang['438'] =  "te ha enviado un nuevo mensaje.";
+$lang['439'] =  "Mensaje";
+$lang['440'] =  "";
+
+
+
+5. Run the update.sql file in your database management tool such as phpMyAdmin

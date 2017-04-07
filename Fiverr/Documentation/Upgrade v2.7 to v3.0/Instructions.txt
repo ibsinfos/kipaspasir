@@ -1,0 +1,272 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 2.7 To 3.0
+
+NOTE: IF YOU ANY MODULES INSTALLED YOU WILL NEED TO UPGRADE ALL OF THEM AFTER YOU FINISH APPLYING THIS UPGRADE
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/bans_ip.php
+- /administrator/bans_ip_add.php
+- /administrator/payments_clear.php
+- /administrator/settings_general.php
+- /css/scriptolution.php
+- /css/style.php
+- /images/gig_stats_bg.png
+- /images/gig_stats_items.png
+- /images/green_v.png
+- /images/welcome.png
+- /include/functions/main.php
+- /include/lang/hebrew.php
+- /include/lang/portuguese.php
+- /themes/administrator/payments_clear.tpl
+- /themes/administrator/settings_general.tpl
+- /themes/administrator/bans_ip.tpl
+- /themes/administrator/bans_ip_add.tpl
+- /themes/administrator/global_header.tpl
+- /themes/balance.tpl
+- /themes/banned.tpl
+- /themes/bit.tpl
+- /themes/bit_express.tpl
+- /themes/cat.tpl
+- /themes/connect.tpl
+- /themes/conversations.tpl
+- /themes/empty.tpl
+- /themes/index.tpl
+- /themes/lang.tpl
+- /themes/manage_orders.tpl
+- /themes/new.tpl
+- /themes/new_extras.tpl
+- /themes/new_js.tpl
+- /themes/new_multiples.tpl
+- /themes/new_ship.tpl
+- /themes/order.tpl
+- /themes/resendconfirmation.tpl
+- /themes/search.tpl
+- /themes/side.tpl
+- /themes/side2.tpl
+- /themes/thank_you_multi.tpl
+- /themes/track.tpl
+- /themes/track_extras.tpl
+- /themes/track_extras2.tpl
+- /themes/track_ship.tpl
+- /themes/track_ship2.tpl
+- /themes/track2.tpl
+- /themes/view.tpl
+- /themes/view_extra.tpl
+- /themes/view_image_box.tpl
+- /themes/view_image_js.tpl
+- /themes/view_order_bit.tpl
+- /themes/view_order_multi.tpl
+- /themes/view_ship.tpl
+- /themes/view_vjs.tpl
+- /themes/view_yt.tpl
+- balance.php
+- banned.php
+- cat.php
+- conversations.php
+- index.php
+- ipn_ap.php
+- ipn_res.php
+- login.php
+- manage_orders.php
+- new.php
+- new_extras.scriptolution.com.php
+- new_ship.scriptolution.com.php
+- order.php
+- ordering.php
+- orders.php
+- resendconfirmation.php
+- search.php
+- settings.php
+- signup.php
+- thank_you.php
+- view.php
+- view_ship1.scriptolution.com.php
+- view_ship2.scriptolution.com.php
+
+
+
+2. Open /include/config.php
+Find:
+$query="INSERT INTO members SET email='".mysql_real_escape_string($femail)."',username='', password='".mysql_real_escape_string($md5pass)."', addtime='".time()."', lastlogin='".time()."', ip='".$_SERVER['REMOTE_ADDR']."', lip='".$_SERVER['REMOTE_ADDR']."', verified='1'";
+
+Replace With:
+$def_country = $config['def_country'];
+if($def_country == "")
+{
+	$def_country = "US";	
+}
+$query="INSERT INTO members SET email='".mysql_real_escape_string($femail)."',username='', password='".mysql_real_escape_string($md5pass)."', addtime='".time()."', lastlogin='".time()."', ip='".$_SERVER['REMOTE_ADDR']."', lip='".$_SERVER['REMOTE_ADDR']."', verified='1', country='".mysql_real_escape_string($def_country)."'";
+
+
+Find:
+if($_SESSION['USERNAME'] == "" && $_SESSION['FB'] == "1")
+{	
+	$url = getCurrentPageUrl();
+	$myurl = $config['baseurl']."/connect.php";
+	$cssurl = $config['baseurl']."/css/style.php";
+	if(($url != $myurl) && ($url != $cssurl))
+	{
+		header("Location:$config[baseurl]/connect.php");exit;
+	}
+}
+	
+Replace With:
+if($_SESSION['USERNAME'] == "" && $_SESSION['FB'] == "1")
+{	
+	$url = getCurrentPageUrl();
+	$myurl = $config['baseurl']."/connect.php";
+	$cssurl = $config['baseurl']."/css/style.php";
+	$myurl2 = $config['baseurl']."/logout.php";
+	if(($url != $myurl) && ($url != $cssurl) && ($url != $myurl2))
+	{
+		header("Location:$config[baseurl]/connect.php");exit;
+	}
+}
+
+
+Find:
+elseif ($_REQUEST['language'] == "french")
+{
+	$_SESSION['language'] = "french";
+}
+	
+Add Below:
+elseif ($_REQUEST['language'] == "portuguese")
+{
+	$_SESSION['language'] = "portuguese";
+}
+elseif ($_REQUEST['language'] == "hebrew")
+{
+	$_SESSION['language'] = "hebrew";
+}
+
+
+Find:
+include("lang/french.php");
+}
+
+Add Below:
+elseif ($_SESSION['language'] == "portuguese")
+{
+include("lang/portuguese.php");
+}
+elseif ($_SESSION['language'] == "hebrew")
+{
+include("lang/hebrew.php");
+}
+
+
+
+3. Open /include/lang/english.php
+Find:
+$lang['471'] =  "";
+
+Replace With:
+$lang['471'] =  "N/A";
+$lang['472'] =  "GIG RATING";
+$lang['473'] =  "IN QUEUE";
+$lang['474'] =  "EST. DELIVERY";
+$lang['475'] =  "orders";
+$lang['476'] =  "POSITIVE REVIEWS";
+$lang['477'] =  "NEGATIVE REVIEWS";
+$lang['478'] =  "LIKED THIS GIG";
+$lang['479'] =  "You must confirm your e-mail address before you can send messages.";
+$lang['480'] =  "Resend e-mail confirmation";
+$lang['481'] =  "Success: Your e-mail confirmation has been sent.";
+$lang['482'] =  "Please click on the link below to confirm your e-mail address:";
+$lang['483'] =  "Allow users to order more than one";
+$lang['484'] =  "The maximum times a user can order this gig is";
+$lang['485'] =  "Order more than one";
+$lang['486'] =  "Order just one";
+$lang['487'] =  "Order this";
+$lang['488'] =  "times";
+$lang['489'] =  "Total";
+$lang['490'] =  "Because you ordered multiple items you need to submit the order requirements for each item.";
+$lang['491'] =  "The seller will not receive your order until you submit the order requirements.";
+$lang['492'] =  "Express";
+$lang['493'] =  "hours";
+$lang['494'] =  "Express Gigs";
+$lang['495'] =  "";
+
+
+
+4. Open /include/lang/french.php
+Find:
+$lang['471'] =  "";
+
+Replace With:
+$lang['471'] = "N/A";
+$lang['472'] = "COTE GIG";
+$lang['473'] = "EN QUEUE";
+$lang['474'] = "HNE LIVRAISON.";
+$lang['475'] = "commandes";
+$lang['476'] = "AVIS FAVORABLE";
+$lang['477'] = "commentaires négatifs";
+$lang['478'] = "J'ai bien aimé ce concert";
+$lang['479'] = "Vous devez confirmer votre adresse e-mail avant de pouvoir envoyer des messages.";
+$lang['480'] = "Renvoyer l'e-mail de confirmation";
+$lang['481'] = "Le succès:. Votre adresse e-mail de confirmation a été envoyé";
+$lang['482'] = "S'il vous plaît cliquer sur le lien ci-dessous pour confirmer votre adresse e-mail:";
+$lang['483'] = "Autoriser les utilisateurs à commander plus d'un";
+$lang['484'] = "Les durées maximales d'un utilisateur peut commander ce concert est";
+$lang['485'] = "Ordre plus d'un";
+$lang['486'] = "Ordre juste un";
+$lang['487'] = "Commandez ce";
+$lang['488'] = "temps";
+$lang['489'] = "Total";
+$lang['490'] = "Parce que vous avez commandé plusieurs articles dont vous avez besoin de soumettre aux exigences de commande pour chaque élément.";
+$lang['491'] = "Le vendeur ne sera pas recevoir votre commande jusqu'à ce que vous présenter les exigences d'ordre.";
+$lang['492'] = "Express";
+$lang['493'] = "heures";
+$lang['494'] = "Concerts Express";
+$lang['495'] = "";
+
+
+
+5. Open /include/lang/spanish.php
+Find:
+$lang['471'] =  "";
+
+Replace With:
+$lang['471'] = "N/A";
+$lang['472'] = "CLASE DE GIG";
+$lang['473'] = "en cola";
+$lang['474'] = "EST LA ENTREGA.";
+$lang['475'] = "órdenes";
+$lang['476'] = "comentarios positivos";
+$lang['477'] = "comentarios negativos";
+$lang['478'] = "Me gustó este concierto";
+$lang['479'] = "Usted debe confirmar su dirección de correo electrónico antes de que usted puede enviar mensajes.";
+$lang['480'] = "Volver a enviar por e-mail de confirmación";
+$lang['481'] = "El éxito:. Tu e-mail de confirmación ha sido enviado";
+$lang['482'] = "Por favor, haga clic en el siguiente enlace para confirmar tu dirección de correo electrónico:";
+$lang['483'] = "Permitir a los usuarios pedir más de uno";
+$lang['484'] = "Los tiempos máximos que un usuario puede ordenar este concierto es";
+$lang['485'] = "Orden de más de uno";
+$lang['486'] = "Orden de una sola";
+$lang['487'] = "esta Orden";
+$lang['488'] = "tiempos";
+$lang['489'] = "Total";
+$lang['490'] = "Debido a que usted ordenó a varios elementos que necesita para presentar los requerimientos de la orden de cada elemento.";
+$lang['491'] = "El vendedor no recibirá su pedido hasta que presente los requisitos de la orden.";
+$lang['492'] = "Express";
+$lang['493'] = "horas";
+$lang['494'] = "Conciertos express";
+$lang['495'] = "";
+
+
+
+6. Run the update.sql file in your database management tool such as phpMyAdmin

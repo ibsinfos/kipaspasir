@@ -1,0 +1,1 @@
+UPDATE `config` SET `value` = '1.5.2' WHERE CONVERT( `config`.`setting` USING utf8 ) = 'ver' LIMIT 1 ;

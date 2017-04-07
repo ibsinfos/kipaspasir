@@ -1,0 +1,100 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 3.5 To 3.6
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/files.php
+- /administrator/files_manage.php
+- /administrator/files_orders.php
+- /administrator/settings_alertpay.php
+- /libraries/ (Entire Folder)
+- /themes/administrator/files.tpl
+- /themes/administrator/files_manage.tpl
+- /themes/administrator/files_orders.tpl
+- /themes/administrator/global_header.tpl
+- /themes/administrator/settings_addpack.tpl
+- /themes/administrator/settings_alertpay.tpl
+- /themes/administrator/settings_editpack.tpl
+- /themes/administrator/settings_general.tpl
+- /themes/administrator/settings_meta.tpl
+- /themes/administrator/settings_packs.tpl
+- /themes/administrator/settings_payment.tpl
+- /themes/administrator/settings_paypal.tpl
+- /themes/administrator/settings_static.tpl
+- /themes/bit_suggest.tpl
+- suggested.php
+
+
+
+2. Open /include/lang/english.php, french.php, hebrew.php, portuguese.php, spanish.php and any other new languages you added
+Find all instances of:
+AlertPay
+
+Replace With:
+Payza
+
+
+
+3. Open /include/lang/english.php
+Find:
+$lang['497'] =  "";
+
+Replace With:
+$lang['497'] =  "Success: Your suggestion has been deleted.";
+$lang['498'] =  "";
+
+
+
+4. Open /include/lang/french.php
+Find:
+$lang['497'] =  "";
+
+Replace With:
+$lang['497'] =  "Succès: Votre suggestion a été supprimé.";
+$lang['498'] =  "";
+
+
+
+5. Open /include/lang/hebrew.php
+Find:
+$lang['497'] =  "";
+
+Replace With:
+$lang['497'] =  "הצלחה: ההצעה שלך נמחק.";
+$lang['498'] =  "";
+
+
+
+6. Open /include/lang/portuguese.php
+Find:
+$lang['497'] =  "";
+
+Replace With:
+$lang['497'] =  "Sucesso: A sua sugestão foi excluído.";
+$lang['498'] =  "";
+
+
+
+7. Open /include/lang/spanish.php
+Find:
+$lang['497'] =  "";
+
+Replace With:
+$lang['497'] =  "Éxito: Su sugerencia ha sido borrada.";
+$lang['498'] =  "";
+
+
+
+8. Run the update.sql file in your database management tool such as phpMyAdmin

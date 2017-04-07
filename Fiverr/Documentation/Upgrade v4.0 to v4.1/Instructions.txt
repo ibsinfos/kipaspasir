@@ -1,0 +1,39 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 4.0 To 4.1
+
+NOTE: If you have the instant delivery module installed, then you need to upgrade it to the latest version AFTER you complete this update.
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/settings_paypal.php
+- /css/scriptolution.php
+- /include/functions/ipn_cls.php
+- /themes/administrator/settings_paypal.tpl
+- /themes/feature.tpl
+- /themes/order.tpl
+- edit.php
+- ipn_pf.php
+- ipn_res.php
+- new.php
+
+
+
+2. Run the update.sql file in your database management tool such as phpMyAdmin
+
+
+
+
+
+

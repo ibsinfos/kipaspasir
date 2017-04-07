@@ -1,0 +1,111 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 2.2 To 2.3
+
+NOTE: If you have the video module installed you will need to upgrade it after you apply this upgrade.
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/payments_featured.php
+- /administrator/settings_payment.php
+- /themes/administrator/global_header.tpl
+- /themes/administrator/payments_clear.tpl
+- /themes/administrator/payments_featured.tpl
+- /themes/administrator/payments_manage.tpl
+- /themes/administrator/settings_payment.tpl
+- /themes/balance.tpl
+- /themes/feature.tpl
+- /themes/feature_success.tpl
+- /themes/header.tpl
+- /themes/manage_gigs2.tpl
+- /themes/new.tpl
+- /themes/purchases.tpl
+- /themes/side2.tpl
+- .htaccess
+- conversations.php
+- cron.php
+- feature.php
+- feature_success.php
+- ipn_ap.php
+- ipn_pf.php
+- new.php
+- purchases.php
+- settings.php
+
+
+
+2. Open /include/lang/english.php
+Find:
+$lang['455'] =  "";
+
+Replace With:
+$lang['455'] =  "Feature Gig";
+$lang['456'] =  "Duration";
+$lang['457'] =  "When you feature a gig it will be shown before other gigs on the website.";
+$lang['458'] =  "View Your Gig Now";
+$lang['459'] =  "Success: Your payment has been received and your gig will be featured soon.";
+$lang['460'] =  "This gig is already featured.";
+$lang['461'] =  "Purchases";
+$lang['462'] =  "Seller Purchases";
+$lang['463'] =  "Paid";
+$lang['464'] =  "You have not featured any of your gigs yet.";
+$lang['465'] =  "Feature";
+$lang['466'] =  "";
+
+
+
+3. Open /include/lang/french.php
+Find:
+$lang['455'] =  "";
+
+Replace With:
+$lang['455'] = "Gig Feature";
+$lang['456'] = "Durée";
+$lang['457'] = "Lorsque vous disposent d'un concert, il sera indiqué avant d'autres concerts sur le site.";
+$lang['458'] = "Voir votre concert Maintenant";
+$lang['459'] = "Success:. Votre paiement a été reçu et votre concert sera présenté bientôt";
+$lang['460'] = "Ce concert est déjà en vedette.";
+$lang['461'] = "Achats";
+$lang['462'] = "Achats vendeur";
+$lang['463'] = "payé";
+$lang['464'] = "Vous n'avez pas présenté un de vos concerts encore.";
+$lang['465'] = "Feature";
+$lang['466'] = "";
+
+
+
+4. Open /include/lang/spanish.php
+Find:
+$lang['455'] =  "";
+
+Replace With:
+$lang['455'] = "Gig funciones";
+$lang['456'] = "duración";
+$lang['457'] = "Cuando se disponen a tocar será mostrado antes de otros conciertos en la web.";
+$lang['458'] = "Ver el concierto ahora";
+$lang['459'] = "El éxito:. Su pago ha sido recibido y el concierto se presentará en breve";
+$lang['460'] = "Este concierto ya está presentado.";
+$lang['461'] = "Compras";
+$lang['462'] = "Las compras del vendedor";
+$lang['463'] = "Pagado";
+$lang['464'] = "Usted no ha presentado ninguna de sus conciertos todavía.";
+$lang['465'] = "Función";
+$lang['466'] = "";
+
+
+
+5. Run the update.sql file in your database management tool such as phpMyAdmin
+
+
+
+6. The upgrade is complete, ensure you set the featured gig price and number of days in the admin panel - settings - payment settings.

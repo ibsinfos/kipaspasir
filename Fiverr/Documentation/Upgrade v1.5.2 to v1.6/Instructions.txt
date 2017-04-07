@@ -1,0 +1,44 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 1.5.2 To 1.6
+
+NOTICE: Ensure your server is running PHP5.2+ before applying this upgrade!
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /include/functions/main.php
+- /libraries/mysmarty.class.php
+- /smarty/
+- /themes/administrator/gigs_edit.tpl
+- /themes/bit.tpl
+- /themes/bookmarks.tpl
+- /themes/cat.tpl
+- /themes/inbox.tpl
+- /themes/index.tpl
+- /themes/search.tpl
+- /themes/tags.tpl
+- forgot.php
+
+
+
+2. Open /include/config.php
+Find:
+session_start();
+
+Add Below:
+date_default_timezone_set('America/New_York');
+
+
+
+3. Run the update.sql file in your database management tool such as phpMyAdmin

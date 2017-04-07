@@ -1,0 +1,96 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2010 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 1.1 To 1.2
+
+
+1. Upload the following files to your server from the upload folder of this package:
+- /administrator/members_edit.php
+- /administrator/orders_manage.php
+- /administrator/payments_clear.php
+- /administrator/settings_addpack.php
+- /administrator/settings_editpack.php
+- /administrator/settings_packs.php
+- /administrator/settings_payment.php
+- /include/functions/main.php
+- /themes/administrator/global_header.tpl
+- /themes/administrator/members_edit.tpl
+- /themes/administrator/payments_clear.tpl
+- /themes/administrator/settings_addpack.tpl
+- /themes/administrator/settings_editpack.tpl
+- /themes/administrator/settings_general.tpl
+- /themes/administrator/settings_meta.tpl
+- /themes/administrator/settings_packs.tpl
+- /themes/administrator/settings_payment.tpl
+- /themes/administrator/settings_static.tpl
+- /themes/balance.tpl
+- /themes/bit.tpl
+- /themes/cat.tpl
+- /themes/conversations.tpl
+- /themes/edit.tpl
+- /themes/index.tpl
+- /themes/manage_gigs2.tpl
+- /themes/new.tpl
+- /themes/order.tpl
+- /themes/sendmessage.tpl
+- /themes/sub_bit.tpl
+- /themes/track.tpl
+- /themes/track2.tpl
+- /themes/user.tpl
+- /themes/view.tpl
+- balance.php
+- cat.php
+- edit.tpl
+- index.php
+- ipn_res.php
+- new.php
+- send_track.php
+- track.php
+- view.php
+
+
+
+2. Open /include/lang/english.php
+Find:
+$lang['435'] =  "";
+
+Replace With:
+$lang['435'] =  "You must choose a price";
+$lang['436'] =  "Price";
+$lang['437'] =  "";
+
+
+
+3. Open /include/lang/french.php
+Find:
+$lang['435'] =  "";
+
+Replace With:
+$lang['435'] =  "Vous devez choisir un prix";
+$lang['436'] =  "Prix";
+$lang['437'] =  "";
+
+
+
+4. Open /include/lang/spanish.php
+Find:
+$lang['435'] =  "";
+
+Replace With:
+$lang['435'] =  "Usted debe elegir un precio";
+$lang['436'] =  "Precio";
+$lang['437'] =  "";
+
+
+
+5. Run the update.sql file in your database management tool such as phpMyAdmin

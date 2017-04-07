@@ -1,0 +1,125 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 3.7 To 3.8
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/cat_add.php
+- /administrator/cat_edit.php
+- /css/scriptolution_cat.css
+- /css/scriptolution_side.css
+- /theme/administrator/cat_add.tpl
+- /theme/administrator/cat_edit.tpl
+- /theme/administrator/cat_manage.tpl
+- /themes/cat.tpl
+- /themes/cat_bit.tpl
+- /themes/edit.tpl
+- /themes/new.tpl
+- /themes/search.tpl
+- /themes/side.tpl
+- /themes/side3.tpl
+- cat.php
+- search.php
+
+
+
+2. Open /include/functions/main.php
+Find:
+$query = "select * from categories order by name asc"; 
+
+Replace With:
+$query = "select * from categories where parent='0' order by name asc"; 
+
+
+Find:
+?>
+
+Add Above:
+function insert_get_subcategories($a)
+{
+    global $config,$conn;
+	$query = "select * from categories where parent='".mysql_real_escape_string($a['parent'])."' order by name asc"; 
+	$results = $conn->execute($query);
+	$returnthis = $results->getrows();
+	return $returnthis;
+}
+
+
+
+4. Open /include/lang/english.php
+Find:
+$lang['503'] =  "";
+
+Replace With:
+$lang['503'] =  "Search In";
+$lang['504'] =  "Search";
+$lang['505'] =  "Everywhere";
+$lang['506'] =  "There are no jobs in this category yet.";
+$lang['507'] =  "";
+
+
+
+6. Open /include/lang/french.php
+Find:
+$lang['503'] = "";
+
+Replace With:
+$lang['503'] =  "Rechercher dans";
+$lang['504'] =  "Rechercher";
+$lang['505'] =  "partout";
+$lang['506'] =  "Il n'y a pas d'emplois dans cette catégorie encore.";
+$lang['507'] =  "";
+
+
+
+7. Open /include/lang/hebrew.php
+Find:
+$lang['503'] = "";
+
+Replace With:
+$lang['503'] =  "חפש בנושא";
+$lang['504'] =  "לחפש";
+$lang['505'] =  "בכל מקום";
+$lang['506'] =  "אין משרות בקטגוריה זו עדיין.";
+$lang['507'] =  "";
+
+
+
+8. Open /include/lang/portuguese.php
+Find:
+$lang['503'] = "";
+
+Replace With:
+$lang['503'] =  "Pesquisar em";
+$lang['504'] =  "Pesquisar";
+$lang['505'] =  "em toda parte";
+$lang['506'] =  "Não há empregos nesta categoria.";
+$lang['507'] =  "";
+
+
+
+9. Open /include/lang/spanish.php
+Find:
+$lang['503'] = "";
+
+Replace With:
+$lang['503'] =  "Buscar En";
+$lang['504'] =  "Buscar";
+$lang['505'] =  "en todas partes";
+$lang['506'] =  "No hay empleos para esta categoría.";
+$lang['507'] =  "";
+
+
+
+10. Run the update.sql file in your database management tool such as phpMyAdmin

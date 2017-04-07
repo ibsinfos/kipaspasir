@@ -1,0 +1,1 @@
+<div class="big-txt">{$p.days|stripslashes}<span class="mid-txt">{$lang131}</span></div>

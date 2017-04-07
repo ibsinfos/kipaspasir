@@ -1,0 +1,147 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 4.2 To 4.3
+
+NOTE: If you have the gig extras module installed, then you need to upgrade it to the latest version (4.2) AFTER you complete this update.
+NOTE #2: If you have the instant delivery module installed, then you need to upgrade it to the latest version (4.3) AFTER you complete this update.
+NOTE #3: If you have the shipping module installed, then you need to upgrade it to the latest version (4.1) AFTER you complete this update.
+NOTE #4: If you have the video module installed, then you need to upgrade it to the latest version (4.1) AFTER you complete this update.
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/js/tools.js
+- /css/scriptolution_dir.css
+- /css/scriptolution_side.css
+- /include/functions/curl.php
+- /include/functions/main.php
+- /include/lang/german.php
+- /themes/administrator/global_header.tpl
+- /themes/categories.tpl
+- /themes/side.tpl
+- categories.php
+- track.php
+
+
+
+2. Open /include/lang/english.php
+Find:
+Yo view
+
+Replace With:
+To view
+
+
+Find:
+$lang['519'] =  "";
+
+Replace With:
+$lang['519'] =  "Directory";
+$lang['520'] =  "Jobs Directory";
+$lang['521'] =  "Browse all categories and sub-categories";
+$lang['522'] =  "";
+
+
+
+3. Open /include/lang/french.php
+Find:
+$lang['519'] =  "";
+
+Replace With:
+$lang['519'] =  "Annuaire";
+$lang['520'] =  "Répertoire d'emplois";
+$lang['521'] =  "Parcourir toutes les catégories et sous-catégories";
+$lang['522'] =  "";
+
+
+
+4. Open /include/lang/hebrew.php
+Find:
+$lang['519'] =  "";
+
+Replace With:
+$lang['519'] =  "מדריך";
+$lang['520'] =  "משרות מדריך";
+$lang['521'] =  "עיון בכל הקטגוריות ותתי קטגוריות";
+$lang['522'] =  "";
+
+
+
+5. Open /include/lang/portuguese.php
+Find:
+$lang['519'] =  "";
+
+Replace With:
+$lang['519'] =  "Diretório";
+$lang['520'] =  "Diretório de Empregos";
+$lang['521'] =  "Procurar todas as categorias e subcategorias";
+$lang['522'] =  "";
+
+
+
+6. Open /include/lang/spanish.php
+Find:
+$lang['519'] =  "";
+
+Replace With:
+$lang['519'] =  "Directorio";
+$lang['520'] =  "Directorio de empleos";
+$lang['521'] =  "Explorar todas las categorías y subcategorías";
+$lang['522'] =  "";
+
+
+
+7. Open /include/config.php
+Find:
+elseif ($_REQUEST['language'] == "hebrew")
+{
+	$_SESSION['language'] = "hebrew";
+}
+
+Add Below:
+elseif ($_REQUEST['language'] == "german")
+{
+	$_SESSION['language'] = "german";
+}
+
+
+Find:
+include("lang/hebrew.php");
+}
+
+Add Below:
+elseif ($_SESSION['language'] == "german")
+{
+include("lang/german.php");
+}
+
+
+
+8. Open /themes/lang.tpl
+Find:
+<option value="hebrew" {if $smarty.session.language eq "hebrew"}selected{/if}>עברית</option>
+
+Add Below:
+<option value="german" {if $smarty.session.language eq "german"}selected{/if}>Deutsch</option>
+
+
+
+9. Open .htaccess
+Find:
+RewriteRule ^levels$ levels.php
+
+Add Below:
+RewriteRule ^categories$ categories.php
+
+
+
+10. Run the update.sql file in your database management tool such as phpMyAdmin

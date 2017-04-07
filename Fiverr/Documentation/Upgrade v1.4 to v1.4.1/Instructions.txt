@@ -1,0 +1,91 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 1.4 To 1.4.1
+
+
+1. Upload the following files to your server from the upload folder of this package:
+- /themes/thank_you.tpl
+- users.php
+
+
+2. Open /include/lang/english.php
+Find:
+$lang['382'] =  "You should expect to receive your order within the time advertised by the seller";
+$lang['383'] =  "You can check the status of your order and track its progress here:";
+
+Replace With:
+$lang['382'] =  "You need to submit the order requirements before the seller can start working on your order.";
+$lang['383'] =  "You can submit the requirements, check the status of your order and track your order progress here:";
+
+
+Find:
+$lang['440'] =  "";
+
+Replace With:
+$lang['440'] =  "Your payment is currently being verified and your order created.";
+$lang['441'] =  "Please stay on this page until this message disappears so you can submit your order requirements to the seller!";
+$lang['442'] =  "refresh now";
+$lang['443'] =  "seconds";
+$lang['444'] =  "This page will automatically refresh in";
+$lang['445'] =  "";
+
+
+
+3. Open /include/lang/french.php
+Find:
+$lang['382'] = "Vous devez vous attendre à recevoir votre commande dans les délais annoncés par le vendeur";
+$lang['383'] = "Vous pouvez vérifier l'état de votre commande et suivre ses progrès ici:";
+
+Replace With:
+$lang['382'] =  "Vous devez soumettre les exigences pour le vendeur avant de commencer à travailler sur votre commande.";
+$lang['383'] =  "Vous pouvez soumettre aux exigences, vérifier l'état de votre commande et de suivre vos progrès commander ici:";
+
+
+Find:
+$lang['440'] =  "";
+
+Replace With:
+$lang['440'] =  "Votre paiement est en cours de vérification et de votre ordre créé.";
+$lang['441'] =  "S'il vous plaît restez sur cette page que ce message disparaisse pour que vous puissiez présenter vos besoins pour le vendeur!";
+$lang['442'] =  "Actualiser maintenant";
+$lang['443'] =  "secondes";
+$lang['444'] =  "Cette page est rechargée automatiquement en";
+$lang['445'] =  "";
+
+
+
+4. Open /include/lang/spanish.php
+Find:
+$lang['382'] = "Usted debe esperar para recibir su solicitud dentro del plazo anunciado por el vendedor";
+$lang['383'] = "Usted puede comprobar el estado de su pedido y seguimiento de su progreso aquí:";
+
+Replace With:
+$lang['382'] =  "Es necesario presentar los requisitos de la orden antes de que el vendedor puede comenzar a trabajar en su solicitud.";
+$lang['383'] =  "Puede enviar los requisitos, comprobar el estado de su pedido y seguimiento de su progreso pedido aquí:";
+
+
+Find:
+$lang['440'] =  "";
+
+Replace With:
+$lang['440'] =  "Su pago está siendo verificado y creó su solicitud.";
+$lang['441'] =  "Por favor, permanezca en esta página hasta que desaparezca este mensaje para que puedas enviar a tus necesidades para el vendedor!";
+$lang['442'] =  "cargar ahora";
+$lang['443'] =  "segundos";
+$lang['444'] =  "Esta página se actualizará automáticamente en";
+$lang['445'] =  "";
+
+
+
+5. Run the update.sql file in your database management tool such as phpMyAdmin

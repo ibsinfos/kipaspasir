@@ -1,0 +1,107 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 2.1 To 2.2
+
+NOTE: If you have the video module installed you will need to upgrade it after you apply this upgrade.
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/wd_validate.php
+- /themes/administrator/wd_validate.tpl
+- /themes/balance.tpl
+- /themes/settings.tpl
+- /themes/user.tpl
+- balance.php
+- manage_gigs.php
+- settings.php
+
+
+
+2. Open /include/config.php
+Find:
+// End Configuration
+
+Add Above:
+$default_language = "english"; //Valid choices are english, spanish or french
+
+
+Find:
+if ($_SESSION['language'] == "")
+{
+	$_SESSION['language'] = "english";
+}
+
+Replace With:
+if ($_SESSION['language'] == "")
+{
+	$_SESSION['language'] = $default_language;
+}
+
+
+Find:
+else
+{
+include("lang/english.php");
+}
+
+Replace With:
+else
+{
+	include("lang/".$default_language.".php");
+}
+
+
+
+3. Open /include/lang/english.php
+Find:
+$lang['450'] =  "";
+
+Replace With:
+$lang['450'] =  "Withdraw to PayPal";
+$lang['451'] =  "Withdraw to AlertPay";
+$lang['452'] =  "AlertPay Account EMail";
+$lang['453'] =  "You must enter your alertpay e-mail address.";
+$lang['454'] =  "The alertpay address you entered is invalid.";
+$lang['455'] =  "";
+
+
+
+4. Open /include/lang/french.php
+Find:
+$lang['450'] =  "";
+
+Replace With:
+$lang['450'] =  "Retirer à PayPal";
+$lang['451'] =  "Retirer à AlertPay";
+$lang['452'] =  "EMail compte AlertPay";
+$lang['453'] =  "Vous devez entrer votre alertpay adresse e-mail.";
+$lang['454'] =  "L'adresse alertpay vous avez entré n'est pas valide.";
+$lang['455'] =  "";
+
+
+
+5. Open /include/lang/spanish.php
+Find:
+$lang['450'] =  "";
+
+Replace With:
+$lang['450'] =  "Retirarse a PayPal";
+$lang['451'] =  "Retirarse a AlertPay";
+$lang['452'] =  "AlertPay cuenta eMail";
+$lang['453'] =  "Usted debe ingresar su alertpay dirección de correo electrónico.";
+$lang['454'] =  "La dirección de alertpay introducido no es válido.";
+$lang['455'] =  "";
+
+
+
+6. Run the update.sql file in your database management tool such as phpMyAdmin

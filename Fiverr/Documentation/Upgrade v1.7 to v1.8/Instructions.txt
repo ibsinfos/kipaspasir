@@ -1,0 +1,28 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 1.7 To 1.8
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /smarty/libs/plugins/shared.make_timestamp.php
+- /themes/administrator/orders_manage.tpl
+- /themes/administrator/settings_payment.tpl
+- /themes/search.tpl
+- /themes/tags.tpl
+- /themes/track.tpl
+- search.php
+- tags.php
+
+
+
+2. Run the update.sql file in your database management tool such as phpMyAdmin
