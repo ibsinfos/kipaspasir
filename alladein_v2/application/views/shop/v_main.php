@@ -69,7 +69,8 @@
                                                 <li class="span3">
                                                     <div class="product-box">
                                                         <span class="sale_tag"></span>
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/ladies/10.jpg" alt="" /></a></p>
+                                                        <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
+														
                                                         <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
                                                         <a href="<?=site_url('shop/showProducts'); ?>" class="category">Apple Segar</a>
                                                         <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
@@ -78,7 +79,7 @@
                                                 <li class="span3">
                                                     <div class="product-box">
                                                         <span class="sale_tag"></span>
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/ladies/11.jpg" alt="" /></a></p>
+                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
                                                         <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
                                                         <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium De Stress</a>
                                                         <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
@@ -86,7 +87,7 @@
                                                 </li>
                                                 <li class="span3">
                                                     <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/ladies/12.jpg" alt="" /></a></p>
+                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
                                                         <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
                                                         <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Lavender</a>
                                                         <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
@@ -94,7 +95,7 @@
                                                 </li>
                                                 <li class="span3">
                                                     <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/ladies/13.jpg" alt="" /></a></p>
+                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
                                                         <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
                                                         <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
                                                         <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
@@ -106,7 +107,7 @@
                                             <ul class="thumbnails">
                                                 <li class="span3">
                                                     <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/ladies/14.jpg" alt="" /></a></p>
+                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
                                                         <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
                                                         <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
                                                         <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
@@ -114,7 +115,7 @@
                                                 </li>
                                                 <li class="span3">
                                                     <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/ladies/15.jpg" alt="" /></a></p>
+                                                        <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
                                                         <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
                                                         <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
                                                         <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
@@ -122,7 +123,7 @@
                                                 </li>
                                                 <li class="span3">
                                                     <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/ladies/16.jpg" alt="" /></a></p>
+                                                        <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
                                                         <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
                                                         <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
                                                         <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
@@ -130,7 +131,7 @@
                                                 </li>
                                                 <li class="span3">
                                                     <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/ladies/17.jpg" alt="" /></a></p>
+                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
                                                         <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
                                                         <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
                                                         <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>

@@ -40,4 +40,9 @@ class Shop extends CI_Controller
         {
             $this->viewpage('v_checkout');
         }
+		
+		public function contact()
+        {
+            $this->viewpage('v_contact');
+        }
 }
