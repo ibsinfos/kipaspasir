@@ -1,0 +1,27 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2010 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 1.0.1 To 1.1
+
+
+1. Upload the following files to your server from the upload folder of this package:
+- /include/functions/main.php
+- /themes/bit.tpl
+- /themes/header.tpl
+- /themes/sendmessage.tpl
+- /themes/sub_bit.tpl
+- /themes/user.tpl
+
+
+
+2. Run the update.sql file in your database management tool such as phpMyAdmin

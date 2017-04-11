@@ -1,0 +1,215 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 3.6 To 3.7
+
+NOTE: If you purchased the script copyright removal rights then you need to re-install it after applying this update.
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/ads_create.php
+- /administrator/ads_edit.php
+- /administrator/members_edit.php
+- /administrator/settings_addpack.php
+- /administrator/settings_editpack.php
+- /administrator/settings_levels.php
+- /administrator/settings_payment.php
+- /administrator/settings_static.php
+- /include/functions/ipn_cls.php
+- /themes/administrator/ads_create.tpl
+- /themes/administrator/ads_edit.tpl
+- /themes/administrator/gigs_edit.tpl
+- /themes/administrator/global_header.tpl
+- /themes/administrator/members_edit.tpl
+- /themes/administrator/payments_featured.tpl
+- /themes/administrator/settings_addpack.tpl
+- /themes/administrator/settings_alertpay.tpl
+- /themes/administrator/settings_editpack.tpl
+- /themes/administrator/settings_general.tpl
+- /themes/administrator/settings_levels.tpl
+- /themes/administrator/settings_meta.tpl
+- /themes/administrator/settings_packs.tpl
+- /themes/administrator/settings_payment.tpl
+- /themes/administrator/settings_paypal.tpl
+- /themes/administrator/settings_static.tpl
+- /themes/feature.tpl
+- /themes/footer.tpl
+- /themes/header.tpl
+- /themes/levels.tpl
+- /themes/manage_gigs2.tpl
+- /themes/search.tpl
+- /themes/settings.tpl
+- /themes/side.tpl
+- /themes/user.tpl
+- cron.php
+- feature.php
+- ipn_pf.php
+- levels
+- new.php
+- settings.php
+- user.php
+
+
+
+2. Open .htaccess
+Find:
+RewriteRule ^suggested$ suggested.php
+
+Add Below:
+RewriteRule ^levels$ levels.php
+
+
+
+3. Open /include/functions/main.php
+Find:
+function insert_get_packs($a)
+{
+    global $config,$conn;
+	$query = "select ID,pprice from packs order by pprice asc"; 
+	$results = $conn->execute($query);
+	$returnthis = $results->getrows();
+	return $returnthis;
+}
+
+Replace With:
+function insert_get_packs($a)
+{
+    global $config,$conn;
+	if($config['enable_levels'] == "1" && $config['price_mode'] == "3")
+	{
+		$me = intval($_SESSION['USERID']);
+		if($me > "0")
+		{
+			$query = "select level from members where USERID='".mysql_real_escape_string($me)."'"; 
+			$executequery=$conn->execute($query);
+			$mlevel = intval($executequery->fields['level']);
+			if($mlevel == "3")
+			{
+				$addl = "WHERE l3='1'";
+			}
+			elseif($mlevel == "2")
+			{
+				$addl = "WHERE l2='1'";
+			}
+			elseif($mlevel == "1")
+			{
+				$addl = "WHERE l1='1'";
+			}
+		}
+	}
+	$query = "select ID,pprice from packs $addl order by pprice asc"; 
+	$results = $conn->execute($query);
+	$returnthis = $results->getrows();
+	return $returnthis;
+}
+
+
+Find:
+function update_your_viewed ($a)
+{
+        global $conn;
+		$query = "UPDATE members SET yourviewed  = yourviewed  + 1 WHERE USERID='".mysql_real_escape_string($a)."'";
+        $executequery=$conn->execute($query);
+}
+
+function update_you_viewed($a)
+{
+        global $conn;
+		$query = "UPDATE members SET youviewed = youviewed + 1 WHERE USERID='".mysql_real_escape_string($a)."'";
+        $executequery=$conn->execute($query);
+}
+
+Delete It
+
+
+
+4. Open /include/lang/english.php, french.php, hebrew.php, portuguese.php, spanish.php and any other new languages you added
+Find all instances of:
+gig
+
+Replace With:
+job
+
+
+
+5. Open /include/lang/english.php
+Find:
+$lang['498'] =  "";
+
+Replace With:
+$lang['498'] =  "You have reached your job posting limit for today.";
+$lang['499'] =  "Level";
+$lang['500'] =  "Job Levels";
+$lang['501'] =  "view all suggestions";
+$lang['502'] =  "Suspended by Admin";
+$lang['503'] =  "";
+
+
+
+6. Open /include/lang/french.php
+Find:
+$lang['498'] =  "";
+
+Replace With:
+$lang['498'] = "Vous avez atteint votre limite les affichages d'emplois pour aujourd'hui.";
+$lang['499'] = "Niveau";
+$lang['500'] = "Les niveaux d'emploi";
+$lang['501'] = "afficher toutes les suggestions";
+$lang['502'] = "Suspendu par Admin";
+$lang['503'] = "";
+
+
+
+7. Open /include/lang/hebrew.php
+Find:
+$lang['498'] =  "";
+
+Replace With:
+$lang['498'] = "הגעת לגבול עבודה פרסום שלך להיום.";
+$lang['499'] = "רמה";
+$lang['500'] = "רמות עבודה";
+$lang['501'] = "להציג את כל ההצעות";
+$lang['502'] = "מרחף על ידי מנהל";
+$lang['503'] = "";
+
+
+
+8. Open /include/lang/portuguese.php
+Find:
+$lang['498'] =  "";
+
+Replace With:
+$lang['498'] = "Você alcançou seu limite de postagem de emprego para hoje.";
+$lang['499'] = "Level";
+$lang['500'] = "Os níveis de emprego";
+$lang['501'] = "Ver todas as sugestões";
+$lang['502'] = "Suspenso por Admin";
+$lang['503'] = "";
+
+
+
+9. Open /include/lang/spanish.php
+Find:
+$lang['498'] =  "";
+
+Replace With:
+$lang['498'] = "Ha llegado a su límite de oferta de trabajo para hoy.";
+$lang['499'] = "Nivel";
+$lang['500'] = "Los niveles de empleo";
+$lang['501'] = "Ver todas las sugerencias";
+$lang['502'] = "Suspendido por administración";
+$lang['503'] = "";
+
+
+
+10. Run the update.sql file in your database management tool such as phpMyAdmin

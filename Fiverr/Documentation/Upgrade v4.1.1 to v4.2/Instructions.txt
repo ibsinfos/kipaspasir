@@ -1,0 +1,100 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 4.1.1 To 4.2
+
+NOTE: If you have the instant delivery module installed, then you need to upgrade it to the latest version AFTER you complete this update.
+NOTE #2: If you have the gig extras module installed, then you need to upgrade it to the latest version AFTER you complete this update.
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/payments_clear.php
+- /include/captcha.php
+- /themes/administrator/gigs_extras_bit.tpl
+- /themes/administrator/gigs_instant_bit.tpl
+- /themes/administrator/gigs_manage.tpl
+- /themes/administrator/gigs_validate.tpl
+- /themes/administrator/gigs_deleted.tpl
+- /themes/manage_orders.tpl
+- /themes/track.tpl
+- /themes/track2.tpl
+- ipn_res.php
+- ipn_ap.php
+
+
+
+2. Open /include/functions/main.php
+Find:
+$p = number_format($a['p'], 2);
+$c = number_format($a['c'], 2);
+
+Replace With:
+$p = number_format($a['p'], 2, '.', '');
+$c = number_format($a['c'], 2, '.', '');
+
+
+Find:
+if($c == "0")
+{
+	$c = number_format($config['commission'], 2, '.', '');
+}
+
+Replace With:
+if($c == "0")
+{
+	$c = number_format($config['commission'], 2, '.', '');
+}
+
+
+Find:
+$c = number_format($config['commission'], 2);
+$p = number_format($a, 2);
+
+Replace With:
+$c = number_format($config['commission'], 2, '.', '');
+$p = number_format($a, 2, '.', '');
+
+
+Find:
+$c = number_format($b, 2);
+$p = number_format($a, 2);
+
+Replace With:
+$c = number_format($b, 2, '.', '');
+$p = number_format($a, 2, '.', '');
+
+
+Find:
+if($status != "2" && $status != "3" && $status != "5" && $status != "7")
+
+Replace With:
+if($status != "3" && $status != "5" && $status != "7")
+
+
+
+3. Open /include/config.php
+Find:
+$curl = &new Curl_HTTP_Client();
+
+Replace With:
+$curl = new Curl_HTTP_Client();
+
+
+
+4. Run the update.sql file in your database management tool such as phpMyAdmin
+
+
+
+
+
+

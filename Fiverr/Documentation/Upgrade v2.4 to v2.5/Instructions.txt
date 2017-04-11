@@ -1,0 +1,170 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 2.4 To 2.5
+
+NOTE: If you have the shipping module or installed you will need to upgrade them after you apply this upgrade. If you have both of those module installed, upgrade the video module, then then shipping module.
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/members_edit.php
+- /administrator/settings_general.php
+- /images/topratedscriptolution.png
+- /smarty/libs/plugins/modifier.mb_truncate.php
+- /themes/administrator/settings_general.tpl
+- /themes/side.tpl
+- /themes/user.tpl
+- /themes/view.tpl
+- cat.php
+- cron.php
+- index.php
+- search.php
+- tags.php
+- user.php
+- view.php
+
+
+
+2. Open /include/lang/english.php
+Find:
+$lang['468'] =  "";
+
+Replace With:
+$lang['468'] =  "top rated seller";
+$lang['469'] =  "";
+
+
+
+3. Open /include/lang/french.php
+Find:
+$lang['468'] =  "";
+
+Replace With:
+$lang['468'] =  "top rated";
+$lang['469'] =  "";
+
+
+
+4. Open /include/lang/spanish.php
+Find:
+$lang['468'] =  "";
+
+Replace With:
+$lang['468'] =  "vendedor más valorados";
+$lang['469'] =  "";
+
+
+
+5. Open /css/style.php
+Find:
+span.de{background-position:-228px -33px !important}
+
+Replace With:
+span.de{background-position:-284px -117px !important}
+
+
+Find:
+span.DE{background-position:-228px -33px !important}
+
+Replace With:
+span.DE{background-position:-284px -117px !important}
+
+
+Find:
+span.ZW{background-position:-200px -593px !important}
+
+Add Below:
+.topRatedBadge{margin-right:2px;color:#e29333;margin-top:-1px; float:left}
+.topRatedBadge img{top:3px;position:relative;right:4px}
+#userprofilepage .topRatedBadge img{right:0!important}
+
+
+
+6. Open /include/function/main.php
+Find:
+?>
+
+Add Above:
+function update_scriptolution_top_rated($userid, $toprated)
+{
+	global $config, $conn;
+	$scriptolution_toprated_count = intval($config['scriptolution_toprated_count']);
+	$scriptolution_toprated_rating = intval($config['scriptolution_toprated_rating']);
+	$query = "select good, bad from ratings where USERID='".mysql_real_escape_string($userid)."'"; 
+	$results=$conn->execute($query);
+	$f = $results->getrows();
+	$grat = 0;
+	$brat = 0;
+	for($i=0;$i<count($f);$i++)
+	{
+		$tgood = $f[$i]['good'];
+		$tbad = $f[$i]['bad'];
+		if($tgood == "1")
+		{
+			$grat++;	
+		}
+		elseif($tbad == "1")
+		{
+			$brat++;	
+		}
+	}
+	$g = $grat;
+	$b = $brat;
+	$t = $g + $b;
+	if($t > 0)
+	{
+		$r = (($g / $t) * 100);
+		$r = round($r, 1);
+				
+		if($t >= $scriptolution_toprated_count && $r >= $scriptolution_toprated_rating)
+		{
+			$querym="UPDATE members SET toprated='1' WHERE USERID='".mysql_real_escape_string($userid)."' limit 1";
+			$conn->execute($querym);
+		}
+		elseif($toprated == "1")
+		{
+			$querym="UPDATE members SET toprated='0' WHERE USERID='".mysql_real_escape_string($userid)."' limit 1";
+			$conn->execute($querym);	
+		}
+	}
+	
+}
+
+
+
+7. Open /themes/bit.tpl
+Find:
+<a class="login-link"
+
+Add Above:
+{if $posts[i].toprated eq "1"}
+<div class="topRatedBadge">
+	<img alt="{$lang468}" src="{$imageurl}/topratedscriptolution.png" />
+	  {$lang468}
+</div>
+{/if}
+
+
+Find:
+truncate:50:"...":true
+
+Replace With:
+mb_truncate:50:"...":'UTF-8'
+
+
+
+8. Run the update.sql file in your database management tool such as phpMyAdmin
+
+
+
+Note: Top rated sellers will only update after your cron job runs.

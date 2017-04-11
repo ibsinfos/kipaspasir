@@ -1,0 +1,42 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 5.1 To 5.2
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /colorbox/
+- /css/scriptolution_style.css
+- /css/scriptolution_style_v5.css
+- /images/scriptolution_ (ALL IMAGES THAT BEGIN WITH "scriptolution_" EXCEPT "scriptolution_logo.png")
+- /js/bxslider/
+- /js/scriptolution.js
+- /js/jquery.customSelect.js
+- /themes/header.tpl
+- /themes/index.tpl
+- /themes/scriptolution_header.tpl
+- /themes/scriptolution_colorbox.tpl
+- /themes/scriptolution_colorbox2.tpl
+
+
+
+2. Delete the following files from your server:
+- /fancybox/
+- /themes/scriptolution_search_new_dropdown.tpl
+- /themes/scriptolution_resolution.tpl
+- /themes/scriptolution_fancybox.tpl
+- /themes/scriptolution_fancybox2.tpl
+
+
+
+3. Run the update.sql file in your database management tool such as phpMyAdmin

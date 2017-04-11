@@ -1,0 +1,33 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 5.2.2 To 5.3
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/ (ALL FILES)
+- /colorbox/images/overlay.png
+- /js/facebook_share.js
+- /themes/administrator/settings_general.tpl
+- /themes/header.tpl
+- /themes/scriptolution_header.tpl
+- /themes/scriptolution_resolution.tpl
+- /themes/signup.tpl
+- ayah.php
+- ayah_config.php
+- json.php
+- signup.php
+
+
+
+2. Run the update.sql file in your database management tool such as phpMyAdmin

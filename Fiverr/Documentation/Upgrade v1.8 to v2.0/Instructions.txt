@@ -1,0 +1,88 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 1.8 To 2.0
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/gigs_deleted.php
+- /administrator/gigs_manage.php
+- /administrator/gigs_validate.php
+- /administrator/payments_clear.php
+- /administrator/payments_manage.php
+- /administrator/settings_alertpay.php
+- /administrator/settings_payment.php
+- /administrator/settings_paypal.php
+- /css/login.css
+- /include/functions/main.php
+- /include/lang/french.php
+- /include/lang/spanish.php
+- /js/main.js
+- /themes/administrator/gigs_deleted.tpl
+- /themes/administrator/gigs_edit.tpl
+- /themes/administrator/gigs_manage.tpl
+- /themes/administrator/gigs_validate.tpl
+- /themes/administrator/global_header.tpl
+- /themes/administrator/payments_clear.tpl
+- /themes/administrator/payments_manage.tpl
+- /themes/administrator/settings_addpack.tpl
+- /themes/administrator/settings_alertpay.tpl
+- /themes/administrator/settings_editpack.tpl
+- /themes/administrator/settings_general.tpl
+- /themes/administrator/settings_meta.tpl
+- /themes/administrator/settings_packs.tpl
+- /themes/administrator/settings_payment.tpl
+- /themes/administrator/settings_paypal.tpl
+- /themes/administrator/settings_static.tpl
+- /themes/balance.tpl
+- /themes/bit.tpl
+- /themes/cat.tpl
+- /themes/forgotpassword.tpl
+- /themes/header.tpl
+- /themes/login.tpl
+- /themes/order.tpl
+- /themes/side.tpl
+- /themes/signup.tpl
+- balance.php
+- cat.php
+- checkuser.php
+- forgotpassword.php
+- ipn_ap.php
+- login.php
+- manage_gigs.php
+- new.php
+- signup.php
+- users.php
+
+
+2. Run the update.sql file in your database management tool such as phpMyAdmin
+
+
+
+3. Open /include/lang/english.php
+Find:
+$lang['446'] =  "";
+
+Replace With:
+$lang['446'] =  "You have three options";
+$lang['447'] =  "Pay using AlertPay";
+$lang['448'] =  "";
+
+
+
+4. Open .htaccess
+Find:
+RewriteRule ^advertising$ advertising.php
+
+Add Below:
+RewriteRule ^signup$ signup.php
+RewriteRule ^forgotpassword$ forgotpassword.php

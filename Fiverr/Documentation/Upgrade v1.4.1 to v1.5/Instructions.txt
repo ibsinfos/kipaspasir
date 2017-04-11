@@ -1,0 +1,96 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 1.4.1 To 1.5
+
+
+1. Upload the following files to your server from the upload folder of this package:
+- /administrator/members_login.php
+- /administrator/settings_general.php
+- /css/style.php
+- /images/scriptolution.png
+- /images/welcome.png
+- /themes/administrator/members_manage.tpl
+- /themes/administrator/settings_general.tpl
+- /themes/bit.tpl
+- /themes/header.tpl
+- /themes/order.tpl
+- /themes/send_track.tpl
+- /themes/track.tpl
+- /themes/track2.tpl
+- /themes/user.tpl
+- /themes/view.tpl
+- index.php
+- order.php
+- rss.php
+- thank_you.php
+- upload.php
+
+
+
+2. Open /include/functions/main.php
+Find:
+?>
+
+Add Above:
+function insert_get_short_url($a)
+{
+    global $conn, $config;
+	$SPID = intval($a['PID']);
+	$stitle = stripslashes($a['title']);
+	$sshort = stripslashes($a['short']);
+	$SSEO = stripslashes($a['seo']);
+	$SSEO = str_replace(" ", "+", $SSEO);
+	$scriptolution_url = $config['baseurl']."/".$SSEO."/".$SPID."/".$stitle;
+	if($SPID > 0)
+	{
+		if($sshort == "")
+		{
+			$takenurl =  file_get_contents("http://www.taken.to/scriptolution.php?url=".$scriptolution_url);
+			if($takenurl != "")
+			{
+				$sshort = str_replace("http://www.taken.to/", "", $takenurl);
+				if($sshort != "")
+				{
+					$query = "UPDATE posts SET short='".mysql_real_escape_string($sshort)."' WHERE PID='".mysql_real_escape_string($SPID)."'";
+					$conn->execute($query);
+					$rme = 	"http://www.taken.to/".$sshort;
+				}
+				else
+				{
+					$rme = 	$scriptolution_url;	
+				}
+			}
+			else
+			{
+				$rme = 	$scriptolution_url;
+			}
+			
+		}
+		else
+		{
+			$rme = 	"http://www.taken.to/".$sshort;
+		}
+	}
+	else
+	{
+		$rme = 	$scriptolution_url;
+	}
+	return $rme;
+} 
+
+
+
+
+
+3. Run the update.sql file in your database management tool such as phpMyAdmin

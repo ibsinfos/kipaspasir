@@ -1,0 +1,176 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 2.0.1 To 2.1
+
+NOTE: If you have the video module installed you will need to upgrade it after you apply this upgrade.
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- connect.php
+- tags.php
+- track.php
+- /administrator/wd_validate.php
+- /themes/connect.tpl
+- /themes/header.tpl
+- /themes/bit.tpl
+- /themes/view.tpl
+
+
+
+2. Open /include/lang/english.php
+Find:
+$lang['448'] =  "";
+
+Replace With:
+$lang['448'] =  "Choose Your Username";
+$lang['449'] =  "To complete your registration you must choose a username.";
+$lang['450'] =  "";
+
+
+
+3. Open /include/lang/french.php
+Find:
+$lang['448'] =  "";
+
+Replace With:
+$lang['448'] =  "Choisissez votre nom d'utilisateur";
+$lang['449'] =  "Pour compléter votre inscription, vous devez choisir un nom d'utilisateur.";
+$lang['450'] =  "";
+
+
+
+4. Open /include/lang/spanish.php
+Find:
+$lang['448'] =  "";
+
+Replace With:
+$lang['448'] =  "Elige tu nombre de usuario";
+$lang['449'] =  "Para completar su registro, usted debe elegir un nombre de usuario.";
+$lang['450'] =  "";
+
+
+
+5. Open /include/config.php
+Find:
+$query="INSERT INTO members SET email='".mysql_real_escape_string($femail)."',username='".mysql_real_escape_string($fname)."', password='".mysql_real_escape_string($md5pass)."', addtime='".time()."', lastlogin='".time()."', ip='".$_SERVER['REMOTE_ADDR']."', lip='".$_SERVER['REMOTE_ADDR']."', verified='1'";
+
+Replace With:
+$query="INSERT INTO members SET email='".mysql_real_escape_string($femail)."',username='', password='".mysql_real_escape_string($md5pass)."', addtime='".time()."', lastlogin='".time()."', ip='".$_SERVER['REMOTE_ADDR']."', lip='".$_SERVER['REMOTE_ADDR']."', verified='1'";
+
+
+Find:
+$query="SELECT USERID,email,username,verified from members WHERE USERID='".mysql_real_escape_string($userid)."'";
+
+Replace With:
+$query="SELECT USERID,email,verified from members WHERE USERID='".mysql_real_escape_string($userid)."'";
+
+
+Find:
+$SUSERNAME = $result->fields['username'];
+
+Delete It
+
+
+Find:
+$_SESSION['USERNAME']=$SUSERNAME;
+
+Delete It
+
+
+Find right after (there are two in the file, this is the second one):
+header("Location:$config[baseurl]/");exit;
+
+Replace With:
+header("Location:$config[baseurl]/connect.php");exit;
+
+
+Find:
+}
+?>
+
+Add Above:
+function getCurrentPageUrl()
+{
+     static $pageURL = '';
+     if(empty($pageURL)){
+          $pageURL = 'http';
+          if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')$pageURL .= 's';
+          $pageURL .= '://';
+          if($_SERVER['SERVER_PORT'] != '80')$pageURL .= $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+          else $pageURL .= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+     }
+     return $pageURL;
+} 
+if($_SESSION['USERNAME'] == "" && $_SESSION['FB'] == "1")
+{	
+	$url = getCurrentPageUrl();
+	$myurl = $config['baseurl']."/connect.php";
+	$cssurl = $config['baseurl']."/css/style.php";
+	if(($url != $myurl) && ($url != $cssurl))
+	{
+		header("Location:$config[baseurl]/connect.php");exit;
+	}
+}
+
+
+
+6. Run the update.sql file in your database management tool such as phpMyAdmin
+
+
+
+7. Upload upgrade.php provided in the folder to your server, execute the file on your server by opening http://www.yourdomain.com/upgrade.php, then once you get the "All gigs have been processed" message, delete upgrade.php from your server.
+
+
+
+8. Open /include/functions/main.php
+Find:
+?>
+
+Add Before:
+function update_gig_rating($PID)
+{
+	global $conn;
+	$query = "select good, bad from ratings where PID='".mysql_real_escape_string($PID)."'"; 
+	$results=$conn->execute($query);
+	$f = $results->getrows();
+	$t = 0;
+	$grat = 0;
+	$brat = 0;
+	for($k=0;$k<count($f);$k++)
+	{
+		$tgood = $f[$k]['good'];
+		$tbad = $f[$k]['bad'];
+		if($tgood == "1")
+		{
+			$grat++;	
+		}
+		elseif($tbad == "1")
+		{
+			$brat++;	
+		}
+	}
+	$g = $grat;
+	$b = $brat;
+	$t = $g + $b;
+	if($t > 0)
+	{
+		$r = (($g / $t) * 100);
+		$gr = round($r, 1);
+	}
+	else
+	{
+		$gr = 0;
+	}
+	$uquery = "UPDATE posts SET rating='".$gr."', rcount=rcount+1 WHERE PID='".mysql_real_escape_string($PID)."'";
+	$conn->execute($uquery);
+}

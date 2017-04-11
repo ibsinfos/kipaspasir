@@ -1,0 +1,104 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) 2011 FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 2.5 To 2.6
+
+
+1. Open /include/config.php
+Find:
+$cookie = get_facebook_cookie(FACEBOOK_APP_ID, FACEBOOK_SECRET);
+		
+$fid = $cookie['uid'];
+
+if(isset($fid))
+{
+	$femail = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$cookie['access_token']))->email;
+	$fname = json_decode(file_get_contents('https://graph.facebook.com/me?access_token='.$cookie['access_token']))->name;
+	$fname = htmlentities(strip_tags($fname), ENT_COMPAT, "UTF-8");
+	$femail = htmlentities(strip_tags($femail), ENT_COMPAT, "UTF-8");
+			
+Replace With:
+$code = $_REQUEST['code'];
+if($code != "")
+{
+	$my_url = $config['baseurl']."/";
+	$token_url = "https://graph.facebook.com/oauth/access_token?"
+	. "client_id=" . $A . "&redirect_uri=" . urlencode($my_url)
+	. "&client_secret=" . $B . "&code=" . $code;
+	$response = @file_get_contents($token_url);
+	$params = null;
+	parse_str($response, $params);
+	$graph_url = "https://graph.facebook.com/me?access_token=" 
+	. $params['access_token'];
+	$user = json_decode(file_get_contents($graph_url));
+	$fname = htmlentities(strip_tags($user->name), ENT_COMPAT, "UTF-8");
+	$femail = htmlentities(strip_tags($user->email), ENT_COMPAT, "UTF-8");
+
+
+2. Open /include/lang/english.php
+Find:
+$lang['469'] =  "";
+
+Replace With:
+$lang['469'] =  "login via facebook";
+$lang['470'] =  "";
+
+
+
+3. Open /include/lang/french.php
+Find:
+$lang['469'] =  "";
+
+Replace With:
+$lang['469'] =  "login via facebook";
+$lang['470'] =  "";
+
+
+
+4. Open /include/lang/spanish.php
+Find:
+$lang['469'] =  "";
+
+Replace With:
+$lang['469'] =  "ingresar con facebook";
+$lang['470'] =  "";
+
+
+
+5. Open /css/style.php
+Add at the bottom of the file:
+.scriptolutionconnect, .scriptolutionconnect a:link, .scriptolutionconnect a:visited, .scriptolutionconnect a:active {
+font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;font-weight: bold;font-size: 12px;border: solid #29447e 1px; border-bottom: solid #1a356e 1px;cursor: pointer;padding: 6px;border-top: solid #8a9cc2 1px;text-align: center;color: #ffffff; background-color: #4f6aa3; text-decoration:none;	
+}
+.connectbyscriptolution {
+    margin-left:250px; position:absolute; padding-top:6px;
+}
+.connectbyscriptolution a:link, .connectbyscriptolution a:active,.connectbyscriptolution a:visited {
+    color: #ffffff;
+}
+.connectbyscriptolution a:hover {
+    color: #efefef;
+}
+
+
+
+6. Open /themes/header.tpl
+Find:
+<div style=" margin-left:300px; position:absolute; padding-top:6px;">{if $enable_fc eq "1"}{literal}<fb:login-button></fb:login-button>{/literal}{/if}</div>
+
+Replace With:
+<div class="connectbyscriptolution">{if $enable_fc eq "1"}<a href="https://www.facebook.com/dialog/permissions.request?app_id={$FACEBOOK_APP_ID}&display=page&next={$baseurl}/&response_type=code&fbconnect=1&perms=email" class="scriptolutionconnect">{$lang469}</a>{/if}</div>
+
+
+
+7. Run the update.sql file in your database management tool such as phpMyAdmin

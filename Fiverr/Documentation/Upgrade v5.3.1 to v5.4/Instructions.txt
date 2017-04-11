@@ -1,0 +1,33 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 5.3.1 To 5.4
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /css/scriptolution_style_v5.css
+- /images/leftbox.png
+- /images/leftbox_hover.png
+- /images/rightbox.png
+- /images/rightbox_hover.png
+- /themes/bit_suggest.tpl
+- /themes/index.tpl
+- /themes/scriptolution_bit_list.tpl
+- /themes/side.tpl
+- /themes/suggested.tpl
+- index.php
+- suggested.php
+
+
+
+2. Run the update.sql file in your database management tool such as phpMyAdmin

@@ -3,8 +3,8 @@
 	 <section id="footer-bar">
 	 
 	      <div class="container"> 
-                <div class="row">
-                    <div class="span3">
+                <div class="row" style="margin-left: 128px;">
+                    <div class="span3" style="    width: 229px!important;">
                         <h4>Navigation</h4>
                         <ul class="nav">
                             <li><a href="./index.php">Homepage</a></li>  
@@ -14,7 +14,7 @@
                             <li><a href="https://www.dinarpal.com/index.php/login">Login</a></li>							
                         </ul>					
                     </div>
-                    <div class="span3">
+                    <div class="span3" style="    width: 229px!important;">
                         <h4>My Account</h4>
                         <ul class="nav">
                             <li><a href="#">My Account</a></li>
@@ -23,7 +23,7 @@
                             <li><a href="#">Newsletter</a></li>
                         </ul>
                     </div>
-                    <div class="span3">
+                    <div class="span3" style="    width: 229px!important;">
                         <h4>User Manual</h4>
                         <ul class="nav">
                             <li><a href="#">How to use Alladein?</a></li>
@@ -32,7 +32,7 @@
 
                         </ul>
                     </div>
-                    <div class="span3">
+                    <div class="span3" style="    width: 229px!important;">
                         <h4>Social Media</h4>
                         <ul class="nav">
                             <li><a href="#">Facebook</a></li>

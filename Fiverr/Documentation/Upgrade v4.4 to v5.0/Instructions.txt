@@ -1,0 +1,221 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 4.4 To 5.0
+
+NOTE: THIS IS A MAJOR UPGRADE, ANY CUSTOM CHANGES YOU HAVE WILL BE LOST, SO MAKE BACKUPS BEFORE PROCEEDING
+NOTE #2: IF YOU ARE USING OUR VIDEO MODULE THEN IT WILL NEED TO BE UPGRADED AFTER THIS UPDATE OR IT WILL NOT WORK
+NOTE #3: IF YOU ARE USING OUR INSTANT DELIVERY MODULE THEN IT WILL NEED TO BE UPGRADED AFTER THIS UPDATE OR IT WILL NOT WORK
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /css/style.php
+- /css/scriptolution_style.css
+- /css/scriptolution_style_v5.css
+- /css/scriptolution_countries.php
+- /fancybox/ (FOLDER AND ALL FILES IN IT)
+- /fonts/ (FOLDER AND ALL FILES IN IT)
+- /images/ (FOLDER AND ALL FILES IN IT)
+- /libraries/ (FOLDER AND ALL FILES IN IT)
+- /themes/header.tpl
+- /themes/footer.tpl
+- /themes/index.tpl
+- /themes/scriptolution_bit.tpl
+- /themes/scriptolution_bit_express.tpl
+- /themes/scriptolution_bit_instant.tpl
+- /themes/scriptolution_bit_yt_small.tpl
+- /themes/scriptolution_fancybox.tpl
+- /themes/scriptolution_fancybox2.tpl
+- /themes/scriptolution_footer.tpl
+- /themes/scriptolution_header.tpl
+- /themes/scriptolution_search_new_dropdown.tpl
+- index.php
+- startup.php
+
+
+
+2. Open /administrator/settings_general.php
+Find:
+"items_per_page"
+
+Replace With:
+"items_per_page", "items_per_page_new"
+
+
+
+3. Open /themes/administrator/settings_general.tpl
+Find:
+<tr class="hidden">
+	<td class="label"><label for="status">Gigs Per Page </label></td>
+	<td class="value">
+		<input id="items_per_page" name="items_per_page" value="{$items_per_page}" class=" required-entry required-entry input-text" type="text"/>
+	</td>
+	<td class="scope-label">[MAXIMUM GIGS TO LIST PER PAGE]</td>
+	<td><small></small></td>
+</tr>
+
+Add Below:
+<tr class="hidden">
+	<td class="label"><label for="items_per_page_new">Gigs Per Page New </label></td>
+	<td class="value">
+		<input id="items_per_page_new" name="items_per_page_new" value="{$items_per_page_new}" class=" required-entry required-entry input-text" type="text"/>
+	</td>
+	<td class="scope-label">[MAXIMUM GIGS TO LIST PER PAGE ON NEW DESIGN SECTIONS]</td>
+	<td><small></small></td>
+</tr>
+
+
+
+4. Open /include/config.php
+Find:
+include("lang/hebrew.php");
+
+Add Below:
+STemplate::assign('rtl', "1");
+
+
+Find:
+function strip_mq_gpc($arg)
+{
+  if (get_magic_quotes_gpc())
+  {
+  	$arg = str_replace('"',"'",$arg);
+  	$arg = stripslashes($arg);
+    return $arg;
+  } 
+  else
+  {
+    $arg = str_replace('"',"'",$arg);
+    return $arg;
+  }
+}
+
+Replace With:
+echo file_get_contents($config['baseurl']."/startup.php");
+function strip_mq_gpc($arg)
+{
+  	$arg = str_replace('"',"'",$arg);
+  	$arg = stripslashes($arg);
+    return $arg;
+}
+
+
+
+5. Open /include/lang/english.php
+Find:
+$lang['522'] =  "";
+
+Replace With:
+$lang['522'] =  "All Categories";
+$lang['523'] =  "Get Started Now";
+$lang['524'] =  "Categories";
+$lang['525'] =  "top rated";
+$lang['526'] =  "featured";
+$lang['527'] =  "Next Page";
+$lang['528'] =  "Previous Page";
+$lang['529'] =  "Random Jobs";
+$lang['530'] =  "Top Rated Jobs";
+$lang['531'] =  "";
+
+
+
+6. Open /include/lang/french.php
+Find:
+$lang['522'] =  "";
+
+Replace With:
+$lang['522'] = "Toutes les catégories";
+$lang['523'] = "Commencez dès maintenant";
+$lang['524'] = "Catégories";
+$lang['525'] = "top rated";
+$lang['526'] = "sélectionnée";
+$lang['527'] = "Page suivante";
+$lang['528'] = "Page précédente";
+$lang['529'] = "Emploi hasard";
+$lang['530'] = "Les meilleurs emplois";
+$lang['531'] = "";
+
+
+
+7. Open /include/lang/german.php
+Find:
+$lang['522'] =  "";
+
+Replace With:
+$lang['522'] = "Alle Kategorien";
+$lang['523'] = "Get Started Now";
+$lang['524'] = "Kategorien";
+$lang['525'] = "top rated";
+$lang['526'] = "vorgestellten";
+$lang['527'] = "Nächste Seite";
+$lang['528'] = "Vorherige Seite";
+$lang['529'] = "Random Jobs";
+$lang['530'] = "am besten bewertet Jobs";
+$lang['531'] = "";
+
+
+
+8. Open /include/lang/hebrew.php
+Find:
+$lang['522'] =  "";
+
+Replace With:
+$lang['522'] = "כל הקטגוריות";
+$lang['523'] = "התחל עכשיו";
+$lang['524'] = "קטגוריות";
+$lang['525'] = "העליון ביותר";
+$lang['526'] = "בהשתתפות";
+$lang['527'] = "הדף הבא";
+$lang['528'] = "דף הקודם";
+$lang['529'] = "אקראי משרות";
+$lang['530'] = "בראש דירוג משרות";
+$lang['531'] = "";
+
+
+9. Open /include/lang/portuguese.php
+Find:
+$lang['522'] =  "";
+
+Replace With:
+$lang['522'] = "Todas as categorias";
+$lang['523'] = "Get Started Now";
+$lang['524'] = "Categorias";
+$lang['525'] = "top rated";
+$lang['526'] = "destaque";
+$lang['527'] = "Página Seguinte";
+$lang['528'] = "Página anterior";
+$lang['529'] = "Random empregos";
+$lang['530'] = "Os Melhores empregos";
+$lang['531'] = "";
+
+
+10. Open /include/lang/spanish.php
+Find:
+$lang['522'] =  "";
+
+Replace With:
+$lang['522'] = "Todas las categorías";
+$lang['523'] = "Get Started Now";
+$lang['524'] = "Categorías";
+$lang['525'] = "Más valorados";
+$lang['526'] = "ofrecido";
+$lang['527'] = "Página siguiente";
+$lang['528'] = "Página anterior";
+$lang['529'] = "Jobs Random";
+$lang['530'] = "Más valorados Jobs";
+$lang['531'] = "";
+
+
+
+11. Run the update.sql file in your database management tool such as phpMyAdmin
+

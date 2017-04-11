@@ -1,0 +1,464 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 3.8 To 4.0
+
+NOTE: After applying this update if you are using the following modules from us, they will need to be updated to the latest version to work: Gig Extras Module, Instant Delivery Module, 
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/cat_add.php
+- /administrator/cat_edit.php
+- /administrator/referrals_manage.php
+- /administrator/referrals_validate.php
+- /administrator/settings_general.php
+- /administrator/settings_referrals.php
+- /include/functions/ipn_cls.php
+- /libraries/ (entire folder)
+- /smarty/ (entire folder)
+- /themes/administrator/cat_add.tpl
+- /themes/administrator/cat_edit.tpl
+- /themes/administrator/files.tpl
+- /themes/administrator/files_manage.tpl
+- /themes/administrator/files_orders.tpl
+- /themes/administrator/global_header.tpl
+- /themes/administrator/payments_clear.tpl
+- /themes/administrator/payments_manage.tpl
+- /themes/administrator/referrals_manage.tpl
+- /themes/administrator/referrals_validate.tpl
+- /themes/administrator/settings_addpack.tpl
+- /themes/administrator/settings_alertpay.tpl
+- /themes/administrator/settings_editpack.tpl
+- /themes/administrator/settings_general.tpl
+- /themes/administrator/settings_levels.tpl
+- /themes/administrator/settings_meta.tpl
+- /themes/administrator/settings_packs.tpl
+- /themes/administrator/settings_payment.tpl
+- /themes/administrator/settings_paypal.tpl
+- /themes/administrator/settings_referrals.tpl
+- /themes/administrator/settings_static.tpl
+- /themes/bit_suggest2.tpl
+- /themes/forgotpassword.tpl
+- /themes/header.tpl
+- /themes/myreferrals.tpl
+- /themes/mysuggestions.tpl
+- /themes/order.tpl
+- /themes/side2.tp
+- /themes/signup.tpl
+- /themes/user.tpl
+- .htaccess
+- cat.php
+- forgotpassword.php
+- myreferrals.php
+- mysuggestions.php
+- new.php
+- order.php
+- signup.php
+
+
+
+2. Open /include/config.php
+Find:
+function create_slrememberme
+
+Add Above:
+if($config['scriptolution_proxy_block'] == "1")
+{
+	if($_SERVER['HTTP_X_FORWARDED_FOR'] || $_SERVER['HTTP_X_FORWARDED'] || $_SERVER['HTTP_FORWARDED_FOR'] || $_SERVER['HTTP_VIA'] || in_array($_SERVER['REMOTE_PORT'], array(8080,80,6588,8000,3128,553,554)) || @fsockopen($_SERVER['REMOTE_ADDR'], 80, $errno, $errstr, 1))
+	{
+		exit('Proxy detected.');
+	}
+}
+
+
+Find:
+function getCurrentPageUrl()
+{
+	 static $pageURL = '';
+	 if(empty($pageURL)){
+		  $pageURL = 'http';
+		  if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')$pageURL .= 's';
+		  $pageURL .= '://';
+		  if($_SERVER['SERVER_PORT'] != '80')$pageURL .= $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+		  else $pageURL .= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+	 }
+	 return $pageURL;
+}
+
+Delete It.
+
+
+Find:
+if($config['enable_fc'] == "1")
+
+Add Above:
+function getCurrentPageUrl()
+{
+	 static $pageURL = '';
+	 if(empty($pageURL)){
+		  $pageURL = 'http';
+		  if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')$pageURL .= 's';
+		  $pageURL .= '://';
+		  if($_SERVER['SERVER_PORT'] != '80')$pageURL .= $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+		  else $pageURL .= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+	 }
+	 return $pageURL;
+}
+function download_photo($url, $saveto)
+{
+	global $config;
+	if (!curlSaveToFile($url, $saveto))
+	{
+		if (!secondarysave($url, $saveto))
+		{
+			return false;
+		}
+		return true;
+	}
+	return true;
+}
+function download_photo_new($url, $saveto, $sourceurl)
+{
+	global $config;
+	include("functions/curl.php");
+	$curl = &new Curl_HTTP_Client();
+	$useragent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13";
+	$curl->set_user_agent($useragent);
+	$curl->set_referrer($url);
+	$cookies_file = $config['basedir']."/temporary/cookies.txt";
+	$curl->store_cookies($cookies_file);
+	$html = $curl->fetch_url($url);
+	if(file_exists($saveto))
+	{
+		unlink($saveto);
+	}
+	$fh = fopen($saveto, 'x');
+	fwrite($fh, $html);
+	fclose($fh);
+	if(file_exists($saveto))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+function secondarysave( $url, $local )
+{
+	$ch = curl_init($url);
+	$fp = fopen($local, 'wb');
+	curl_setopt($ch, CURLOPT_FILE, $fp);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_exec($ch);
+	curl_close($ch);
+	fclose($fp);
+
+	if( filesize($local) > 10 ) {
+		return true;
+	}
+	
+	return false;
+}
+
+function curlSaveToFile( $url, $local )
+{
+	$ch = curl_init();
+	$fh = fopen($local, 'w');
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_FILE, $fh);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_setopt($ch, CURLOPT_VERBOSE, false);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_NOPROGRESS, true);
+	curl_setopt($ch, CURLOPT_USERAGENT, '"Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.11) Gecko/20071204 Ubuntu/7.10 (gutsy) Firefox/2.0.0.11');
+	curl_exec($ch);
+	
+	if( curl_errno($ch) ) {
+		return false;
+	}
+	
+	curl_close($ch);
+	fclose($fh);
+	
+	if( filesize($local) > 10 ) {
+		return true;
+	}
+	
+	return false;
+}
+
+function do_resize_image_2($file, $width = 0, $height = 0, $proportional = false, $output = 'file')
+{
+	if($height <= 0 && $width <= 0)
+	{
+	  return false;
+	}
+	
+	$info = getimagesize($file);
+	$image = '';
+
+	$final_width = 0;
+	$final_height = 0;
+	list($width_old, $height_old) = $info;
+
+	if($proportional) 
+	{
+	  if ($width == 0) $factor = $height/$height_old;
+	  elseif ($height == 0) $factor = $width/$width_old;
+	  else $factor = min ( $width / $width_old, $height / $height_old);   
+	  
+	  $final_width = round ($width_old * $factor);
+	  $final_height = round ($height_old * $factor);
+		  
+	  if($final_width > $width_old && $final_height > $height_old)
+	  {
+	  	  $final_width = $width_old;
+		  $final_height = $height_old;
+
+	  }
+	}
+	else 
+	{
+	  $final_width = ( $width <= 0 ) ? $width_old : $width;
+	  $final_height = ( $height <= 0 ) ? $height_old : $height;
+	}
+	
+	switch($info[2]) 
+	{
+	  case IMAGETYPE_GIF:
+		$image = imagecreatefromgif($file);
+	  break;
+	  case IMAGETYPE_JPEG:
+		$image = imagecreatefromjpeg($file);
+	  break;
+	  case IMAGETYPE_PNG:
+		$image = imagecreatefrompng($file);
+	  break;
+	  default:
+		return false;
+	}
+
+	$image_resized = imagecreatetruecolor( $final_width, $final_height );
+
+	if(($info[2] == IMAGETYPE_GIF) || ($info[2] == IMAGETYPE_PNG))
+	{
+	  $trnprt_indx = imagecolortransparent($image);
+	
+	  if($trnprt_indx >= 0)
+	  {
+		$trnprt_color    = imagecolorsforindex($image, $trnprt_indx);
+		$trnprt_indx    = imagecolorallocate($image_resized, $trnprt_color['red'], $trnprt_color['green'], $trnprt_color['blue']);
+		imagefill($image_resized, 0, 0, $trnprt_indx);
+		imagecolortransparent($image_resized, $trnprt_indx);	
+	  } 
+	  elseif($info[2] == IMAGETYPE_PNG) 
+	  {
+		imagealphablending($image_resized, false);
+		$color = imagecolorallocatealpha($image_resized, 0, 0, 0, 127);
+		imagefill($image_resized, 0, 0, $color);
+		imagesavealpha($image_resized, true);
+	  }
+	}
+	imagecopyresampled($image_resized, $image, 0, 0, 0, 0, $final_width, $final_height, $width_old, $height_old);
+
+	switch( strtolower($output))
+	{
+	  case 'browser':
+		$mime = image_type_to_mime_type($info[2]);
+		header("Content-type: $mime");
+		$output = NULL;
+	  break;
+	  case 'file':
+		$output = $file;
+	  break;
+	  case 'return':
+		return $image_resized;
+	  break;
+	  default:
+	  break;
+	}
+	
+	if(file_exists($output))
+	{
+		@unlink($output);
+	}
+
+	switch($info[2])
+	{
+	  case IMAGETYPE_GIF:
+		imagegif($image_resized, $output);
+	  break;
+	  case IMAGETYPE_JPEG:
+		imagejpeg($image_resized, $output, 100);
+	  break;
+	  case IMAGETYPE_PNG:
+		imagepng($image_resized, $output);
+	  break;
+	  default:
+		return false;
+	}
+	return true;
+}
+
+
+Find:
+$femail = htmlentities(strip_tags($user->email), ENT_COMPAT, "UTF-8");
+
+Add Below:
+$fbpid = htmlentities(strip_tags($user->id), ENT_COMPAT, "UTF-8");
+$fbpicurl = "http://graph.facebook.com/".$fbpid."/picture";
+$fbpicurl2 = "http://graph.facebook.com/".$fbpid."/picture?type=large";
+
+
+Find:
+$_SESSION['FB']="1";
+header("Location:$config[baseurl]/connect.php");exit;
+
+Replace With:
+$_SESSION['FB']="1";		
+if(intval($fbpid) > 0)
+{
+	$fp1 = $fbpicurl;
+	$fp2 = $fbpicurl2;
+	$tfpp = $userid.".jpg";
+	$fimage=$config['membersprofilepicdir']."/o/".$tfpp;
+	if(!download_photo($fp2, $fimage))
+	{
+		if(file_exists($fimage))
+		{
+			unlink($fimage);
+		}
+	}
+	else
+	{
+		$fi2=$config['membersprofilepicdir']."/".$tfpp;
+		do_resize_image_2($fimage, "100", "100", false, $fi2);
+		$fi3=$config['membersprofilepicdir']."/thumbs/".$tfpp;
+		do_resize_image_2($fimage, "50", "50", false, $fi3);	
+		if(file_exists($config['membersprofilepicdir']."/o/".$tfpp))
+		{
+			$query = "UPDATE members SET profilepicture='$tfpp' WHERE USERID='".mysql_real_escape_string($userid)."'";
+			$conn->execute($query);
+		}
+	}
+}
+header("Location:$config[baseurl]/connect.php");exit;
+
+
+
+3. Open /include/lang/english.php
+Find:
+$lang['507'] =  "";
+
+Replace With:
+$lang['507'] =  "Error: There are no accounts with that e-mail address.";
+$lang['508'] =  "Your username cannot be more than 15 characters.";
+$lang['509'] =  "Job title cannot be more then 200 characters.";
+$lang['510'] =  "Description cannot be more then 450 characters.";
+$lang['511'] =  "My Suggestions";
+$lang['512'] =  "My Referrals";
+$lang['513'] =  "Referrals";
+$lang['514'] =  "referrals are being displayed";
+$lang['515'] =  "No referrals to display";
+$lang['516'] =  "You have not referred anyone yet.";
+$lang['517'] =  "Declined";
+$lang['518'] =  "Pay using your available balance";
+$lang['519'] =  "";
+
+
+
+4. Open /include/lang/french.php
+Find:
+$lang['507'] = "";
+
+Replace With:
+$lang['507'] = "Erreur:. Il n'existe pas de comptes avec cette adresse e-mail";
+$lang['508'] = "Votre nom d'utilisateur ne peut pas être plus de 15 caractères.";
+$lang['509'] = "Titre de l'emploi ne peut pas être plus de 200 caractères.";
+$lang['510'] = "description ne peut pas être plus de 450 caractères.";
+$lang['511'] = "Mes suggestions";
+$lang['512'] = "Mes Parrainages";
+$lang['513'] = "Parrainages";
+$lang['514'] = "références sont affichées";
+$lang['515'] = "Aucune référence à afficher";
+$lang['516'] = "Vous n'avez pas appelé personne pour le moment.";
+$lang['517'] = "Refusée";
+$lang['518'] = "Payer avec votre solde disponible";
+$lang['519'] =  "";
+
+
+
+5. Open /include/lang/hebrew.php
+Find:
+$lang['507'] = "";
+
+Replace With:
+$lang['507'] = "שגיאה:. אין חשבונות עם שכתובת דואר אלקטרונית";
+$lang['508'] = "שם המשתמש שלך לא יכול להיות יותר מ 15 תווים.";
+$lang['509'] = "כותרת העבודה אינה יכולה להיות יותר מ 200 תווים.";
+$lang['510'] = "תיאור לא יכול להיות יותר מ 450 תווים.";
+$lang['511'] = "ההצעות שלי";
+$lang['512'] = "ההפניות שלי";
+$lang['513'] = "הפניות";
+$lang['514'] = "הפניותיו מוצגות";
+$lang['515'] = "ללא הפניות לתצוגה";
+$lang['516'] = "לא התייחס אף אחד.";
+$lang['517'] = "שנדחה";
+$lang['518'] = "שלם באמצעות האיזון הזמין שלך";
+$lang['519'] =  "";
+
+
+6. Open /include/lang/portuguese.php
+Find:
+$lang['507'] = "";
+
+Replace With:
+$lang['507'] = "Erro:. existem contas com esse endereço de e-mail";
+$lang['508'] = "Seu nome de usuário não pode ser mais que 15 caracteres.";
+$lang['509'] = "Título do trabalho não pode ser mais do que 200 caracteres.";
+$lang['510'] = "Descrição não pode ser mais do que 450 caracteres.";
+$lang['511'] = "Minhas sugestões";
+$lang['512'] = "Minhas Referências";
+$lang['513'] = "Referências";
+$lang['514'] = "encaminhamentos estão sendo exibidos";
+$lang['515'] = "Não há referências para mostrar";
+$lang['516'] = "Você não se refere a ninguém ainda.";
+$lang['517'] = "Recusado";
+$lang['518'] = "Pague usando seu saldo disponível";
+$lang['519'] =  "";
+
+
+
+7. Open /include/lang/spanish.php
+Find:
+$lang['507'] = "";
+
+Replace With:
+$lang['507'] = "Error:. No hay cuentas con esa dirección de e-mail";
+$lang['508'] = "Tu nombre de usuario no puede tener más de 15 caracteres.";
+$lang['509'] = "Profesión no puede ser mayor de 200 caracteres.";
+$lang['510'] = "La descripción no puede ser más de 450 caracteres.";
+$lang['511'] = "Mis sugerencias";
+$lang['512'] = "Mis Referidos";
+$lang['513'] = "Referidos";
+$lang['514'] = "referencias se están mostrando";
+$lang['515'] = "No hay referencias que se muestran";
+$lang['516'] = "Usted no ha mencionado a nadie.";
+$lang['517'] = "Rechazado";
+$lang['518'] = "Pague con su saldo disponible";
+$lang['519'] =  "";
+
+
+
+8. Run the update.sql file in your database management tool such as phpMyAdmin

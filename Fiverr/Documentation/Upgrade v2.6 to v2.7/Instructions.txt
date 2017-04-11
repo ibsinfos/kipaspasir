@@ -1,0 +1,155 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 2.6 To 2.7
+
+
+1. Open /themes/view.tpl
+Find:
+{$cvseo}
+
+Replace With
+{$cvseo}?id={$p.PID}
+
+
+Find:
+{insert name=get_redirect2 value=a assign=rurl2 uname=$p.username}
+
+Replace With:
+{insert name=get_redirect2 value=a assign=rurl2 uname=$p.username pid=$p.PID}
+
+Find:
+{if $short_urls eq "1"}
+<li>
+	{insert name=get_short_url value=a assign=takento PID=$p.PID seo=$p.seo short=$posts[i].short title=$title}
+	<a href="http://twitter.com/share" class="twitter-share-button" data-url="{$takento}" data-via="{$twitter}" data-text="{$lang62} {$p.gtitle|stripslashes} {$lang63}{$p.price|stripslashes}" data-count="none">Tweet</a>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</li>
+<li>
+	<g:plusone size="medium" count="false" href="{$takento}"></g:plusone>
+</li>
+{else}
+
+
+Replace With:
+{if $short_urls eq "1"}
+<li>
+	{insert name=get_short_url value=a assign=takento PID=$p.PID seo=$p.seo short=$posts[i].short title=$title}
+	<a href="http://twitter.com/share" class="twitter-share-button" data-url="{$baseurl}/{$p.seo|stripslashes|replace:' ':'+'}/{$p.PID|stripslashes}/{$title}" data-via="{$twitter}" data-text="{$lang62} {$p.gtitle|stripslashes} {$lang63}{$p.price|stripslashes}" data-count="none">Tweet</a>
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</li>
+<li>
+	<g:plusone size="medium" count="false" href="{$takento}"></g:plusone>
+</li>
+{else}
+
+
+
+2. Open /themes/bit.tpl
+Find:
+truncate:140:"...":true
+
+Replace With:
+mb_truncate:140:"...":'UTF-8'
+
+
+
+3. Open /include/function/main.php
+Find:
+function insert_get_redirect2($a)
+{
+    $uname = $a['uname'];
+	$rme = "conversations/".stripslashes($uname);
+	return base64_encode($rme);
+}
+
+Replace With:
+function insert_get_redirect2($a)
+{
+    $uname = $a['uname'];
+	$pid = $a['pid'];
+	if($pid > 0)
+	{
+		$addp = "?id=".$pid;	
+	}
+	$rme = "conversations/".stripslashes($uname).$addp;
+	return base64_encode($rme);
+}
+
+
+
+4. Open /include/lang/english.php
+Find:
+$lang['470'] =  "";
+
+Replace With:
+$lang['470'] =  "of";
+$lang['471'] =  "";
+
+
+
+5. Open /include/lang/french.php
+Find:
+$lang['470'] =  "";
+
+Replace With:
+$lang['470'] =  "de";
+$lang['471'] =  "";
+
+
+
+6. Open /include/lang/spanish.php
+Find:
+$lang['470'] =  "";
+
+Replace With:
+$lang['470'] =  "de";
+$lang['471'] =  "";
+
+
+
+7. Upload the following files and folders to your server from the upload folder of this package:
+- /themes/bookmarks.tpl
+
+
+
+8. Open /css/style.php
+Find:
+span.rs{background-position:-4px -621px !important}
+Replace With:
+span.rs{background-position:-32px -621px !important}
+
+
+Find:
+span.RS{background-position:-4px -621px !important}
+
+Replace With:
+span.RS{background-position:-32px -621px !important}
+
+
+Find:
+span.in{background-position:-284px -229px !important}
+
+Replace With:
+span.in{background-position:-32px -257px !important}
+
+
+Find:
+span.IN{background-position:-284px -229px !important}
+
+Replace With:
+span.IN{background-position:-32px -257px !important}
+
+
+
+9. Run the update.sql file in your database management tool such as phpMyAdmin

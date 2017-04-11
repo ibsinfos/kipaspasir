@@ -1,0 +1,41 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 3.4 To 3.5
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /administrator/conversations_manage.php
+- /administrator/feedback_add.php
+- /administrator/feedback_manage.php
+- /include/functions/ipn_cls.php
+- /themes/administrator/conversations_manage.tpl
+- /themes/administrator/feedback_add.tpl
+- /themes/administrator/feedback_manage.tpl
+- /themes/administrator/global_header.tpl
+- /themes/bit.tpl
+- /themes/bit_instant.tpl
+- /themes/new.tpl
+- /themes/new_instant.tpl
+- /themes/thank_you_multi_instant.tpl
+- /themes/view.tpl
+- /themes/view_instant.tpl
+- edit.php
+- ipn_res.php
+- new.php
+- new_instant.scriptolution.com.php
+- settings.php
+
+
+
+2. Run the update.sql file in your database management tool such as phpMyAdmin

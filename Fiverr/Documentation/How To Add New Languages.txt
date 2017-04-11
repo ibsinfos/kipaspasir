@@ -1,0 +1,51 @@
+/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+These are the steps for installing a new language, we will be doing an example for German
+
+1. Convert one of the provided languages in the include/lang folder (english, french, spanish, portuguese or hebrew) into German, naming the newly converted language german.php
+
+
+2. Open include/config.php
+
+Find:
+elseif ($_REQUEST['language'] == "spanish")
+
+Add Above:
+elseif ($_REQUEST['language'] == "german")
+{
+	$_SESSION['language'] = "german";
+}
+
+
+Find:
+elseif ($_SESSION['language'] == "spanish")
+
+Add Above:
+elseif ($_SESSION['language'] == "german")
+{
+include("lang/german.php");
+}
+
+
+3. Open themes/lang.tpl
+
+Find:
+<option value="spanish" {if $smarty.session.language eq "spanish"}selected{/if}>Español</option>
+
+Add After:
+<option value="german" {if $smarty.session.language eq "german"}selected{/if}>German</option>
+
+
+
+The german language would now be installed.

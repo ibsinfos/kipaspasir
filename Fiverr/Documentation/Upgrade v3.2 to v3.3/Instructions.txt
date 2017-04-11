@@ -1,0 +1,113 @@
+﻿/**************************************************************************************************
+| Fiverr Script
+| http://www.fiverrscript.com
+| webmaster@fiverrscript.com
+|
+|**************************************************************************************************
+|
+| By using this software you agree that you have read and acknowledged our End-User License 
+| Agreement available at http://www.fiverrscript.com/eula.html and to be bound by it.
+|
+| Copyright (c) FiverrScript.com. All rights reserved.
+|**************************************************************************************************/
+
+Upgrade 3.2 To 3.3
+
+
+1. Upload the following files and folders to your server from the upload folder of this package:
+- /images/flag_mexico.jpg
+- /themes/bit_suggest.tpl
+- /themes/cat.tpl
+- /themes/footer.tpl
+- /themes/index.tpl
+- /themes/search.tpl
+- /themes/send_track.tpl
+- /themes/side.tpl
+- /themes/side3.tpl
+- /themes/suggested.tpl
+- /themes/tags.tpl
+- /themes/track.tpl
+- /themes/track2.tpl
+- /themes/view.tpl
+- .htaccess
+- cat.php
+- connect.php
+- index.php
+- search.php
+- suggested.php
+- tags.php
+- view.php
+
+
+
+2. Open /css/style.php
+Find:
+span.mx{background-position:-116px -257px !important}
+
+Replace With:
+span.mx{background:url(<?php echo $imageurl; ?>/flag_mexico.jpg);height:11px;width:16px}
+
+
+Find:
+span.MX{background-position:-116px -257px !important}
+
+Replace With:
+span.MX{background:url(<?php echo $imageurl; ?>/flag_mexico.jpg);height:11px;width:16px}
+
+
+
+3. Open /include/lang/english.php
+Find:
+$lang['495'] = "";
+
+Replace With
+$lang['495'] =  "Any Price";
+$lang['496'] =  "Suggestions";
+$lang['497'] =  "";
+
+
+
+4. Open /include/lang/french.php
+Find:
+$lang['495'] =  "";
+
+Replace With
+$lang['495'] =  "Tous les prix";
+$lang['496'] =  "Suggestions";
+$lang['497'] =  "";
+
+
+
+5. Open /include/lang/hebrew.php
+Find:
+$lang['495'] =  "";
+
+Replace With
+$lang['495'] =  "כל מחיר";
+$lang['496'] =  "הצעות";
+$lang['497'] =  "";
+
+
+
+6. Open /include/lang/portuguese.php
+Find:
+$lang['495'] =  "";
+
+Replace With
+$lang['495'] =  "qualquer Preço";
+$lang['496'] =  "sugestões";
+$lang['497'] =  "";
+
+
+
+7. Open /include/lang/spanish.php
+Find:
+$lang['495'] =  "";
+
+Replace With
+$lang['495'] =  "Cualquier precio";
+$lang['496'] =  "Sugerencias";
+$lang['497'] =  "";
+
+
+8. Run the update.sql file in your database management tool such as phpMyAdmin
