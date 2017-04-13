@@ -55,9 +55,12 @@
 	display: block;
 	padding-bottom: 3em;
 }
-
+.cbp-hrsub-inner{
+	
+    padding-left: 100px !important;
+}
 .cbp-hrmenu .cbp-hrsub-inner > div {
-	width: 33%;
+	width: 15% !important;
 	float: left;
 	padding: 0 2em 0;
 }

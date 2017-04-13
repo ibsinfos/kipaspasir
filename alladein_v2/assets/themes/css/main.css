@@ -41,11 +41,9 @@ ul >li:hover{
 }
 .cbp-hrsub h4{
 	color: #000!important;
-  
-   
-    font-size: 146%!important;
-    font-weight: 100!important;
-	line-height: 8px!important;
+    font-size: 101.3%!important;
+    font-weight: 600!important;
+    line-height: 26px!important;
 }
 
 /*.cbp-hrmenu > ul, .cbp-hrmenu .cbp-hrsub-inner{
@@ -488,7 +486,7 @@ section.navbar{
 	left:0;
 }
 .product-box:hover{
-	background-color:#eb4800;
+	background-color:rgb(189, 63, 7);
 	-webkit-transition: all 0.2s linear;
     -moz-transition: all 0.2s linear;
     -o-transition: all 0.2s linear;
