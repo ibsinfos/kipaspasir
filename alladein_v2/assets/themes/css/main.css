@@ -17,6 +17,10 @@ span{
 h4.title{
 	    width: 97.5%!important;
 }
+.accordion-heading {
+    background-color: #ccc!important;
+	font-size: 15px !important;
+}
 .cbp-hrmenu .cbp-hrsub{
 	
 	background-color: #fff!important;

@@ -100,9 +100,7 @@
         width: auto !important;
     }
     /* padding on screen sides */
-    .container {
-        width:90%!important;
-    }
+   
 
     .navbar-inner {
         padding:0 0 10px 0px!important;

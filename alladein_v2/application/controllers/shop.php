@@ -44,5 +44,26 @@ class Shop extends CI_Controller
 		public function contact()
         {
             $this->viewpage('v_contact');
+        }	
+		public function login()
+        {
+            $this->viewpage('v_login');
         }
+		public function step1()
+        {
+            $this->viewpage('v_step1_term');
+        }
+		public function step2()
+        {
+            $this->viewpage('v_step2_address');
+        }
+		public function step3()
+        {
+            $this->viewpage('v_step3_confirm');
+        }
+		public function step4()
+        {
+            $this->viewpage('v_step4_receipt');
+        }
+
 }

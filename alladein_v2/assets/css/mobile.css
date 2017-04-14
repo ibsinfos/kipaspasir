@@ -1,0 +1,26 @@
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (max-device-width: 600px)
+  and (orientation: portrait)
+  { 
+   
+
+#mobilemenu{
+	display: block;
+}
+
+#desktopmenu{
+	display: none;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner > div {
+       width: 100% !important;
+    font-size: 15px!important;
+    
+}
+
+
+   }
+   
+
