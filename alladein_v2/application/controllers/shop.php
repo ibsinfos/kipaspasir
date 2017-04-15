@@ -18,7 +18,11 @@ class Shop extends CI_Controller
 
         public function index()
 	{
-            $this->viewpage();
+            $limit = 28;
+            $button_api = $this->m_button_api->getAll('', '', '', '', '', '', '', '', $limit);
+//            echo "<pre>"; print_r($button_api); die();
+            $data['button_api'] = $button_api;
+            $this->viewpage('v_main', $data);
 	}
         
         public function showProducts()
@@ -40,8 +44,8 @@ class Shop extends CI_Controller
         {
             $this->viewpage('v_checkout');
         }
-		
-		public function contact()
+        
+        public function contact()
         {
             $this->viewpage('v_contact');
         }	

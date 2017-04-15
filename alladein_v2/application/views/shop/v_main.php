@@ -57,7 +57,7 @@
                         <div class="row">
                             <div class="span12">
                                 <h4 class="title">
-                                    <span class="pull-left"><span class="text"><span class="line">Gold <strong>Products</strong></span></span></span>
+                                    <span class="pull-left"><span class="text"><span class="line">More <strong>Products</strong></span></span></span>
                                     <span class="pull-right">
                                         <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button" href="#myCarousel" data-slide="next"></a>
                                     </span>
@@ -65,45 +65,44 @@
                                 <div id="myCarousel" class="myCarousel carousel slide">
                                     <div class="carousel-inner">
                                         <div class="active item">
-                                            <ul class="thumbnails">												
+                                            <ul class="thumbnails">	
+                                                <?php
+                                                $i = 1;
+                                                $size_button_api = sizeof($button_api);
+                                                if (isset($button_api) && !empty($button_api)) {
+                                                    foreach ($button_api as $bap) {
+                                                        $bap_id = $bap->bap_id;
+                                                        $bapidx = $this->my_func->dinarpal_encrypt($bap_id);
+                                                        $bap_image = $bap->bap_image;
+                                                        $bap_info_url = $bap->bap_info_url;
+                                                        $bap_name = $bap->bap_name;
+                                                        $me_username = $bap->me_username;
+                                                        $bap_gold = $bap->bap_gold;
+                                                        $bap_silver = $bap->bap_silver;
+                                                        $bap_name = $this->my_func->getShortString($bap_name, 30);
+                                                        $me_username = $this->my_func->getShortString($me_username, 30);
+                                                ?>
                                                 <li class="span3">
                                                     <div class="product-box">
                                                         <span class="sale_tag"></span>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
-														
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Apple Segar</a>
-                                                        <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
+                                                        <!--<img src="<?=$this->config->item('base_url_ori'); ?>assets/uploads/merchant/<?=$bap_image; ?>" class="img-rounded" style="width: 250px; height: 188px;" />-->
+                                                        <iframe width="250" height="188" src="<?=$bap_info_url; ?>" frameborder="0" allowfullscreen></iframe>
+                                                        <a href="<?=site_url('shop/showProductDetail/'.$bapidx); ?>" class="title"><?=$bap_name; ?></a><br/>
+                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category"><?=$me_username; ?></a>
+                                                        <p class="price"><?=number_format($bap_gold, 1); ?> Gram DPG <br /><?=number_format($bap_silver, 1); ?> Gram DPS</p>
                                                     </div>
                                                 </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <span class="sale_tag"></span>
-                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium De Stress</a>
-                                                        <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Lavender</a>
-                                                        <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
-                                                        <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
-                                                    </div>
-                                                </li>
+                                                <?php 
+                                                        if ($i % 4 == 0 && $i != $size_button_api) {
+                                                            echo "</ul></div><div class=\"item\"><ul class=\"thumbnails\">";
+                                                        }
+                                                        $i += 1;
+                                                    }
+                                                } 
+                                                ?>
                                             </ul>
                                         </div>
-                                        <div class="item">
+<!--                                        <div class="item">
                                             <ul class="thumbnails">
                                                 <li class="span3">
                                                     <div class="product-box">
@@ -138,95 +137,7 @@
                                                     </div>
                                                 </li>																																	
                                             </ul>
-                                        </div>
-                                    </div>							
-                                </div>
-                            </div>						
-                        </div>
-                        <br/>
-                        <div class="row">
-                            <div class="span12">
-                                <h4 class="title">
-                                    <span class="pull-left"><span class="text"><span class="line">Silver <strong>Products</strong></span></span></span>
-                                    <span class="pull-right">
-                                        <a class="left button" href="#myCarousel-2" data-slide="prev"></a><a class="right button" href="#myCarousel-2" data-slide="next"></a>
-                                    </span>
-                                </h4>
-                                <div id="myCarousel-2" class="myCarousel carousel slide">
-                                    <div class="carousel-inner">
-                                        <div class="active item">
-                                            <ul class="thumbnails">												
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <span class="sale_tag"></span>
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/cloth/18.png" alt="" /></a></p>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Aniza Coklat Sedap</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">30% less for 5 first customers</a>
-                                                        <p class="price">3.0 Gram DPS<br>0.2 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/cloth/19.jpg" alt="" /></a></p>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Goat Milk Segar</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Fixed Price</a>
-                                                        <p class="price">4.0 Gram DPS<br>0.1 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/cloth/20.jpg" alt="" /></a></p>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ibnu Battutah Vol 1</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Fixed Price</a>
-                                                        <p class="price">1.0 Gram DPS<br>0.05 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/cloth/21.jpg" alt="" /></a></p>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ibnu Battutah Vol 2</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Fixed Price</a>
-                                                        <p class="price">1.0 Gram DPS<br>0.05 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="item">
-                                            <ul class="thumbnails">
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/cloth/18.png" alt="" /></a></p>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Aniza Coklat Sedap</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">30% less for 5 first customers</a>
-                                                        <p class="price">3.0 Gram DPS<br>0.2 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/cloth/18.png" alt="" /></a></p>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Aniza Coklat Sedap</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">30% less for 5 first customers</a>
-                                                        <p class="price">3.0 Gram DPS<br>0.2 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/cloth/18.png" alt="" /></a></p>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Aniza Coklat Sedap</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">30% less for 5 first customers</a>
-                                                        <p class="price">3.0 Gram DPS<br>0.2 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <p><a href="<?=site_url('shop/showProductDetail'); ?>"><img src="<?=base_url(); ?>assets/themes/images/cloth/18.png" alt="" /></a></p>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Aniza Coklat Sedap</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">30% less for 5 first customers</a>
-                                                        <p class="price">3.0 Gram DPS<br>0.2 Gram DPG</p>
-                                                    </div>
-                                                </li>																																	
-                                            </ul>
-                                        </div>
+                                        </div>-->
                                     </div>							
                                 </div>
                             </div>						
@@ -255,7 +166,6 @@
                                     <div class="support">	
                                         <img src="<?=base_url(); ?>assets/themes/images/feature_img_3.png" alt="" />
                                         <h4>24/7 LIVE <strong>SUPPORT</strong></h4>
-
                                     </div>
                                 </div>
                             </div>	

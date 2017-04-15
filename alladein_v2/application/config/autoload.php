@@ -52,7 +52,8 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'session', 'xmlrpc', 'SimpleLoginSecure', 'grocery_CRUD');
+$autoload['libraries'] = array('database', 'session', 'xmlrpc', 
+    'SimpleLoginSecure', 'grocery_CRUD', 'my_func', 'cart', 'encrypt');
 
 
 /*
@@ -80,7 +81,7 @@ $autoload['helper'] = array('url', 'form', 'cookie', 'file');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('custom_config');
 
 
 /*
@@ -109,7 +110,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('m_conndb');
+$autoload['model'] = array('m_conndb', 'm_button_api');
 
 
 /* End of file autoload.php */
