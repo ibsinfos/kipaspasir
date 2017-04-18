@@ -6,9 +6,9 @@
                         <li>
                             <img src="<?=base_url(); ?>assets/themes/images/carousel/gadget.jpg" alt="" />
                             <div class="intro">
-                                <h1>Season sale</h1>
-                                <p><span>Up to 30% Off</span></p>
-                                <p><span>On selected items online and in stores</span></p>
+                                <h1> The Prophet (SAW)</h1>
+                                <p><span>likened a good Muslim to the date palm, saying: </span></p>
+                                <p><span>“Among trees, there is a tree like a Muslim.<br> Its leaves do not fall.” (Bukhari)</span></p>
                             </div>
                         </li>
                         <li>

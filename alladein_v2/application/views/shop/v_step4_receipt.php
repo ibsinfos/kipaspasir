@@ -78,6 +78,11 @@
 															<option value="1">DinarPal Bank</option>
 															
 														</select>
+														
+														<br><br>
+														<p><strong>Full Name</strong>: Anita Binti Ahmad<br></p>
+														<p><strong>Address</strong>:	No.3, Jalan Jingga, Taman Beruang, 75450, Melaka<br></p>
+							
 													
 													</div>
 												<br>

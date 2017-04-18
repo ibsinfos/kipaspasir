@@ -1,30 +1,143 @@
 <head>
 <style>
 	
-.button span {
-  cursor: pointer!important;
-  display: inline-block!important;
-  position: relative!important;
-  transition: 0.5s!important;
+
+a .button {
+    perspective: 500px;
+    -webkit-perspective: 500px;
+    -moz-perspective: 500px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 }
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+a .button div {
+    position: absolute;
+    text-align: center;
+    padding: 10px;
+    border: #000000 solid 1px;
+    pointer-events: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
-.button:hover span {
-  padding-right: 25px;
+a .button div:nth-child(1) {
+    color: #000000;
+    background-color: #ffffff;
+    z-index: 0;
+    width: 100%;
+    height: 50px;
+    clip: rect(0px, 100px, 50px, 0px);
+    position: absolute;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform-origin: 50% 50% -25px;
+    -webkit-transform-origin: 50% 50% -25px;
+    -moz-transform-origin: 50% 50% -25px;
 }
 
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
+a .button div:nth-child(2) {
+    color: #000000;
+    background-color: #000000;
+    z-index: -1;
+    width: 100%;
+    height: 50px;
+    clip: rect(0px, 100px, 50px, 0px);
+    position: absolute;
+    transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transform-origin: 50% 50% -25px;
+    -webkit-transform-origin: 50% 50% -25px;
+    -moz-transform-origin: 50% 50% -25px;
 }
+
+a .button div:nth-child(3) {
+    color: #000000;
+    background-color: #ffffff;
+    z-index: 0;
+    width: 100%;
+    height: 50px;
+    clip: rect(0px, 200px, 50px, 100px);
+    position: absolute;
+    transition: all 0.2s ease 0.1s;
+    -webkit-transition: all 0.2s ease 0.1s;
+    -moz-transition: all 0.2s ease 0.1s;
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+    transform-origin: 50% 50% -25px;
+    -webkit-transform-origin: 50% 50% -25px;
+    -moz-transform-origin: 50% 50% -25px;
+}
+
+a .button div:nth-child(4) {
+    color: #000000;
+    background-color: #000000;
+    z-index: -1;
+    width: 100%;
+    height: 50px;
+    clip: rect(0px, 200px, 50px, 100px);
+    position: absolute;
+    transform: rotateX(-90deg);
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    transition: all 0.2s ease 0.1s;
+    -webkit-transition: all 0.2s ease 0.1s;
+    -moz-transition: all 0.2s ease 0.1s;
+    transform-origin: 50% 50% -25px;
+    -webkit-transform-origin: 50% 50% -25px;
+    -moz-transform-origin: 50% 50% -25px;
+}
+
+a .button:hover div:nth-child(1) {
+    background-color: #000000;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transform: rotateX(-90deg);
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+}
+
+a .button:hover div:nth-child(2) {
+    color: #ffffff;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+}
+
+a .button:hover div:nth-child(3) {
+    background-color: #000000;
+    transition: all 0.2s ease 0.1s;
+    -webkit-transition: all 0.2s ease 0.1s;
+    -moz-transition: all 0.2s ease 0.1s;
+    transform: rotateX(90deg);
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+}
+
+a .button:hover div:nth-child(4) {
+    color: #ffffff;
+    transition: all 0.2s ease 0.1s;
+    -webkit-transition: all 0.2s ease 0.1s;
+    -moz-transition: all 0.2s ease 0.1s;
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    -moz-transform: rotateX(0deg);
+}
+
+
 </style>
 </head>
 <div id="wrapper" class="container">    

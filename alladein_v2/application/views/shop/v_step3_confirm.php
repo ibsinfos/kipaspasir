@@ -67,8 +67,9 @@
 						<hr>
 						<p class="cart-total right">
 						<div class="control-group">
-													<label class="control-label">TAC Request:</label>
-													<a href="#"><button class="btn btn-inverse" data-toggle="collapse" data-parent="#collapse2">Request</button></a>
+													<label class="control-label">TAC Request: <a style="color:#000;">  What is TAC?</a></label>
+													
+													<a href="#"><button class="btn btn-inverse" data-toggle="collapse" data-parent="#collapse2">Request TAC</button></a><a style="color:#000;">   Not Registered yet.</a>
 													
 													<br><br>
 													<div class="controls">
