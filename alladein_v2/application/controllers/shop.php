@@ -53,6 +53,10 @@ class Shop extends CI_Controller
         {
             $this->viewpage('v_login');
         }
+		public function signin()
+        {
+            $this->viewpage('v_main_after_signin.php');
+        }
 		public function step1()
         {
             $this->viewpage('v_step1_term');
