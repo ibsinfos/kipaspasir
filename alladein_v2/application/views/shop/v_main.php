@@ -75,6 +75,7 @@
                                                         $bapidx = $this->my_func->dinarpal_encrypt($bap_id);
                                                         $bap_image = $bap->bap_image;
                                                         $bap_info_url = $bap->bap_info_url;
+                                                        $bap_info_url = str_replace('watch?v=', 'embed/', $bap_info_url);
                                                         $bap_name = $bap->bap_name;
                                                         $me_username = $bap->me_username;
                                                         $bap_gold = $bap->bap_gold;
@@ -87,6 +88,7 @@
                                                         <span class="sale_tag"></span>
                                                         <!--<img src="<?=$this->config->item('base_url_ori'); ?>assets/uploads/merchant/<?=$bap_image; ?>" class="img-rounded" style="width: 250px; height: 188px;" />-->
                                                         <iframe width="250" height="188" src="<?=$bap_info_url; ?>" frameborder="0" allowfullscreen></iframe>
+                                                        
                                                         <a href="<?=site_url('shop/showProductDetail/'.$bapidx); ?>" class="title"><?=$bap_name; ?></a><br/>
                                                         <a href="<?=site_url('shop/showProducts'); ?>" class="category"><?=$me_username; ?></a>
                                                         <p class="price"><?=number_format($bap_gold, 1); ?> Gram DPG <br /><?=number_format($bap_silver, 1); ?> Gram DPS</p>
