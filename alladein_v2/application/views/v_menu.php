@@ -221,7 +221,7 @@
 										<ul>
 											<li><a href="#">Bracelets & Bangles</a></li>
 											<li><a href="#">Necklaces & Pendants</a></li>
-											<li><a href="#">Rings/a></li>
+											<li><a href="#">Rings</a></li>
 											<li><a href="#">Earrings</a></li>
 											<li><a href="#">Jewellery Sets</a></li>
 										
