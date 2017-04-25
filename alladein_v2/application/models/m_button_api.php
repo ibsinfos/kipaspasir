@@ -4,7 +4,8 @@
 	  function getAll($bap_name='', $me_username='', 
                   $bap_price1='', $bap_price2='', 
                   $bap_gold1='', $bap_gold2='', 
-                  $bap_silver1='', $bap_silver2='', $limit=100000) {
+                  $bap_silver1='', $bap_silver2='', $limit=100000, 
+                  $bap_name_arr=array()) {
 		  $this->db->select('*');
 		  $this->db->from('button_api bap, members me');
                   $this->db->where('bap.me_id = me.me_id');
@@ -31,6 +32,14 @@
                   }
                   if ($bap_silver2 != '') {
                       $this->db->where('(bap.bap_silver <> \'\' AND bap.bap_silver <> \'NIL\' AND bap.bap_silver <= '.$bap_silver2.')');
+                  }
+                  if (isset($bap_name_arr) && !empty($bap_name_arr)) {
+                      $bna_str = "(";
+                      foreach ($bap_name_arr as $bna) {
+                          $bna_str .= sprintf("UPPER(bap.bap_name) LIKE UPPER('%%%s%%') AND ", $bna);
+                      }
+                      $bna_str .= "UPPER(bap.bap_name) LIKE UPPER('%%'))";
+                      $this->db->where($bna_str);
                   }
 //                  $this->db->order_by('bap.bap_id', 'DESC');
 //                  $this->db->order_by('bap.bap_datetime', 'DESC');
