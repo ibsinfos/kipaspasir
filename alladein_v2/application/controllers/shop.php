@@ -1,77 +1,82 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
-class Shop extends CI_Controller 
-{
-        var $parent_page = "shop";
-	function __construct()
-	{
-            parent::__construct(); 
-	}
-        
-        private function viewpage($page='v_main', $data=array())
-        {
-            echo $this->load->view('v_header', $data, true);
-            echo $this->load->view('v_menu', $data, true);
-            echo $this->load->view($this->parent_page.'/'.$page, $data, true);
-            echo $this->load->view('v_footer', $data, true);
-        }
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
-        public function index()
-	{
-            $limit = 28;
-            $button_api = $this->m_button_api->getAll('', '', '', '', '', '', '', '', $limit);
+class Shop extends CI_Controller {
+
+    var $parent_page = "shop";
+
+    function __construct() {
+        parent::__construct();
+    }
+
+    private function viewpage($page = 'v_main', $data = array()) {
+        echo $this->load->view('v_header', $data, true);
+        echo $this->load->view('v_menu', $data, true);
+        echo $this->load->view($this->parent_page . '/' . $page, $data, true);
+        echo $this->load->view('v_footer', $data, true);
+    }
+
+    public function index() {
+        $limit = 8;
+        $button_api = $this->m_button_api->getAll('', '', '', '', '', '', '', '', $limit);
 //            echo "<pre>"; print_r($button_api); die();
-            $data['button_api'] = $button_api;
-            $this->viewpage('v_main', $data);
-	}
-        
-        public function showProducts()
-        {
-            $this->viewpage('v_products');
+        $data['button_api'] = $button_api;
+        $this->viewpage('v_main', $data);
+    }
+
+    public function showProducts() {
+        $carida = "";
+        $carida_arr = array();
+        if ($this->input->post('carida')) {
+            $carida = $this->input->post('carida');
+            $carida_arr = explode(' ', $carida);
         }
-        
-        public function showProductDetail()
-        {
-            $this->viewpage('v_product_detail');
-        }
-        
-        public function myCarts()
-        {
-            $this->viewpage('v_cart');
-        }
-        
-        public function checkout()
-        {
-            $this->viewpage('v_checkout');
-        }
-        
-        public function contact()
-        {
-            $this->viewpage('v_contact');
-        }	
-		public function login()
-        {
-            $this->viewpage('v_login');
-        }
-		public function signin()
-        {
-            $this->viewpage('v_main_after_signin.php');
-        }
-		public function step1()
-        {
-            $this->viewpage('v_step1_term');
-        }
-		public function step2()
-        {
-            $this->viewpage('v_step2_address');
-        }
-		public function step3()
-        {
-            $this->viewpage('v_step3_confirm');
-        }
-		public function step4()
-        {
-            $this->viewpage('v_step4_receipt');
-        }
+        $limit = 21;
+        $button_api = $this->m_button_api->getAll('', '', '', '', '', '', '', '', $limit, $carida_arr);
+        $data['button_api'] = $button_api;
+        $this->viewpage('v_products', $data);
+    }
+
+    public function showProductDetail() {
+        $this->viewpage('v_product_detail');
+    }
+
+    public function myCarts() {
+        $this->viewpage('v_cart');
+    }
+
+    public function checkout() {
+        $this->viewpage('v_checkout');
+    }
+
+    public function contact() {
+        $this->viewpage('v_contact');
+    }
+
+    public function login() {
+        $this->viewpage('v_login');
+    }
+
+    public function signin() {
+        $this->viewpage('v_main_after_signin.php');
+    }
+
+    public function step1() {
+        $this->viewpage('v_step1_term');
+    }
+
+    public function step2() {
+        $this->viewpage('v_step2_address');
+    }
+
+    public function step3() {
+        $this->viewpage('v_step3_confirm');
+    }
+
+    public function step4() {
+        $this->viewpage('v_step4_receipt');
+    }
 
 }
