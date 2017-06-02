@@ -68,8 +68,8 @@
                                             <ul class="thumbnails">	
                                                 <?php
                                                 $i = 1;
-                                                $size_button_api = sizeof($button_api);
                                                 if (isset($button_api) && !empty($button_api)) {
+                                                    $size_button_api = sizeof($button_api);
                                                     foreach ($button_api as $bap) {
                                                         $bap_id = $bap->bap_id;
                                                         $bapidx = $this->my_func->dinarpal_encrypt($bap_id);
@@ -77,6 +77,8 @@
                                                         $bap_info_url = $bap->bap_info_url;
                                                         $bap_info_url = str_replace('watch?v=', 'embed/', $bap_info_url);
                                                         $bap_name = $bap->bap_name;
+                                                        $me_id = $bap->me_id;
+                                                        $me_idx = $this->my_func->dinarpal_encrypt($me_id);
                                                         $me_username = $bap->me_username;
                                                         $bap_gold = $bap->bap_gold;
                                                         $bap_silver = $bap->bap_silver;
@@ -89,9 +91,13 @@
                                                         <!--<img src="<?=$this->config->item('base_url_ori'); ?>assets/uploads/merchant/<?=$bap_image; ?>" class="img-rounded" style="width: 250px; height: 188px;" />-->
                                                         <iframe width="250" height="188" src="<?=$bap_info_url; ?>" frameborder="0" allowfullscreen></iframe>
                                                         
-                                                        <a href="<?=site_url('shop/showProductDetail/'.$bapidx); ?>" class="title"><?=$bap_name; ?></a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category"><?=$me_username; ?></a>
-                                                        <p class="price"><?=number_format($bap_gold, 1); ?> Gram DPG <br /><?=number_format($bap_silver, 1); ?> Gram DPS</p>
+                                                        <a href="<?=site_url('shop/s/productDetail/'.$bapidx); ?>" class="title"><?=$bap_name; ?></a><br/>
+                                                        <a href="<?=site_url('shop/s/products/?u='.$me_idx); ?>" class="category"><?=$me_username; ?></a>
+                                                        <p class="price">
+                                                            <a href="<?=site_url('shop/s/productDetail/'.$bapidx); ?>">
+                                                                <?=number_format($bap_gold, 1); ?> Gram DPG <br /><?=number_format($bap_silver, 1); ?> Gram DPS
+                                                            </a>
+                                                        </p>
                                                     </div>
                                                 </li>
                                                 <?php 
@@ -104,42 +110,6 @@
                                                 ?>
                                             </ul>
                                         </div>
-<!--                                        <div class="item">
-                                            <ul class="thumbnails">
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
-                                                        <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
-                                                        <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
-                                                        <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
-                                                    </div>
-                                                </li>
-                                                <li class="span3">
-                                                    <div class="product-box">
-                                                       <a href="<?=site_url('shop/showProductDetail'); ?>"><iframe width="250" height="188" src="https://www.youtube.com/embed/90OrB5km3w0" frameborder="0" allowfullscreen></iframe></a>
-                                                        <a href="<?=site_url('shop/showProductDetail'); ?>" class="title">Ritz Minyak Wangi</a><br/>
-                                                        <a href="<?=site_url('shop/showProducts'); ?>" class="category">Rose Geranium Orange Energize</a>
-                                                        <p class="price">4.0 Gram DPS <br>0.1 Gram DPG</p>
-                                                    </div>
-                                                </li>																																	
-                                            </ul>
-                                        </div>-->
                                     </div>							
                                 </div>
                             </div>						

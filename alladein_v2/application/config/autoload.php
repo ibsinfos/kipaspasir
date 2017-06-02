@@ -110,7 +110,8 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('m_conndb', 'm_button_api');
+$autoload['model'] = array('m_conndb', 'm_button_api', 'm_button_api_category', 
+        'm_members');
 
 
 /* End of file autoload.php */

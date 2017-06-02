@@ -5,10 +5,17 @@
                   $bap_price1='', $bap_price2='', 
                   $bap_gold1='', $bap_gold2='', 
                   $bap_silver1='', $bap_silver2='', $limit=100000, 
-                  $bap_name_arr=array()) {
+                  $bap_name_arr=array(), 
+                  $bac_id=-1, $me_id=-1) {
 		  $this->db->select('*');
 		  $this->db->from('button_api bap, members me');
                   $this->db->where('bap.me_id = me.me_id');
+                  if ($me_id != -1) {
+                      $this->db->where('bap.me_id', $me_id);
+                  }
+                  if ($bac_id != -1) {
+                      $this->db->where('bap.bac_id', $bac_id);
+                  }
                   if ($bap_name != '') {
                       $this->db->where('UPPER(bap.bap_name) LIKE UPPER(\'%'.$bap_name.'%\')');
                   }

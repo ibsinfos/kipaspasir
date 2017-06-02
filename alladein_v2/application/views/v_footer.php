@@ -9,7 +9,7 @@
                         <ul class="nav">
                             <li><a href="./index.php">Homepage</a></li>  
                             <li><a href="./about.php">About Us</a></li>
-                            <li><a href="./contact.php">Contac Us</a></li>
+                            <li><a href="./contact.php">Contact Us</a></li>
                             <li><a href="./cart.php">Your Cart</a></li>
                             <li><a href="https://www.dinarpal.com/index.php/login">Login</a></li>							
                         </ul>					
