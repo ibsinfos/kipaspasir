@@ -91,10 +91,10 @@
                                                         <!--<img src="<?=$this->config->item('base_url_ori'); ?>assets/uploads/merchant/<?=$bap_image; ?>" class="img-rounded" style="width: 250px; height: 188px;" />-->
                                                         <iframe width="250" height="188" src="<?=$bap_info_url; ?>" frameborder="0" allowfullscreen></iframe>
                                                         
-                                                        <a href="<?=site_url('shop/s/productDetail/'.$bapidx); ?>" class="title"><?=$bap_name; ?></a><br/>
-                                                        <a href="<?=site_url('shop/s/products/?u='.$me_idx); ?>" class="category"><?=$me_username; ?></a>
+                                                        <a href="<?=site_url('shop/productDetail/'.$bapidx); ?>" class="title"><?=$bap_name; ?></a><br/>
+                                                        <a href="<?=site_url('shop/products/?u='.$me_idx); ?>" class="category"><?=$me_username; ?></a>
                                                         <p class="price">
-                                                            <a href="<?=site_url('shop/s/productDetail/'.$bapidx); ?>">
+                                                            <a href="<?=site_url('shop/productDetail/'.$bapidx); ?>">
                                                                 <?=number_format($bap_gold, 1); ?> Gram DPG <br /><?=number_format($bap_silver, 1); ?> Gram DPS
                                                             </a>
                                                         </p>

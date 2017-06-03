@@ -111,7 +111,7 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array('m_conndb', 'm_button_api', 'm_button_api_category', 
-        'm_members');
+        'm_members', 'm_my_cart');
 
 
 /* End of file autoload.php */
